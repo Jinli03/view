@@ -106,7 +106,6 @@ export default {
     },
     handleFull(){
       document.documentElement.requestFullscreen()
-
     },
     logout() {
       localStorage.removeItem("pilot")

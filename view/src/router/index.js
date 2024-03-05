@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/Manager',
     name: 'Manager',
     component: () => import('../views/Manager.vue'),
     redirect: 'home',//重定向
@@ -18,8 +18,6 @@ const routes = [
       { path: 'home', name: 'Home', meta: { name: '系统首页'}, component: () => import('../views/manager/Home.vue')},
       { path: 'user', name: 'User', meta: { name: '用户信息'}, component: () => import('../views/manager/User.vue')},
       { path: '403', name: 'Auth', meta: { name: '不知道'}, component: () => import('../views/manager/Auth.vue')},
-      { path: 'person', name: 'Person', meta: { name: '个人信息'}, component: () => import('../views/manager/Person.vue')},
-      { path: 'password', name: 'Password', meta: { name: '修改密码'}, component: () => import('../views/manager/Password.vue')},
       { path: 'news', name: 'News', meta: { name: '新闻信息'}, component: () => import('../views/manager/News.vue')},
       { path: 'newsdet', name: 'NewsDet', meta: { name: '新闻详情'}, component: () => import('../views/manager/NewsDet.vue')},
       { path: 'echarts', name: 'Echarts', meta: { name: '图表信息'}, component: () => import('../views/manager/Echarts.vue')},
@@ -27,10 +25,22 @@ const routes = [
       { path: 'tables', name: 'Tables', meta: { name: '查询名称'}, component: () => import('../views/manager/Tables.vue')},
     ]
   },
+  {
+  path: '/',
+    name: 'Menu',
+    component: () => import('../views/Menu.vue'),
+    redirect: 'homepage',//重定向
+    children: [
+      { path: 'homepage', name: 'HomePage', meta: { name: '主页'}, component: () => import('../views/home/HomePage.vue')},
+      { path: 'analyze', name: 'Analyze', meta: { name: '分析局'}, component: () => import('../views/home/Analyze.vue')},
+      { path: 'personal', name: 'Personal', meta: { name: '个人'}, component: () => import('../views/home/Personal.vue')},
+      { path: 'person', name: 'Person', meta: { name: '个人信息'}, component: () => import('../views/home/Person.vue')},
+      { path: 'password', name: 'Password', meta: { name: '修改密码'}, component: () => import('../views/home/Password.vue')},
+]
+},
   { path: '/element', name: 'Element', meta: { name: 'element'}, component: () => import('../views/Element.vue')},
   { path: '/login', name: 'Login', meta: { name: '登录'}, component: () => import('../views/Login.vue')},
   { path: '/register', name: 'Register', meta: { name: '注册'}, component: () => import('../views/Register.vue')},
-  { path: '/about', name: 'about', meta: { name: 'about'}, component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')},
   { path: '/*', name: '404', meta: { name: '无法访问'}, component: () => import('../views/404.vue')},
 
 ]
