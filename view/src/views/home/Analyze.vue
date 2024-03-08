@@ -1,208 +1,272 @@
-<!--
-*@Personal
-*@author Jinli
-*@date 2024/3/5 20:13
--->
 <template>
   <div>
-    <div class="bob">
-      <div class="center">
-        <input type="checkbox" id="toggle" style="position: fixed; left: 0; top: 0; z-index: 11">
-        <div class="main">
-          <div class="layers">
-            <div class="layer">
-              <div class="text">School</div>
-              <div class="container">
-                <div class="can">
-                  <img src="@/assets/01.png">
-                </div>
-                <div class="wrapper">
-                  <img src="@/assets/02.png">
-                </div>
-              </div>
-              <label for="toggle">Click To Slide</label>
-              <label @click="showTable">查看学校</label>
-            </div>
-            <div class="layer">
-              <div class="text">Subject</div>
-              <div class="container">
-                <div class="can">
-                  <img src="@/assets/01.png">
-                </div>
-                <div class="wrapper">
-                  <img src="@/assets/02.png">
-                </div>
-              </div>
-              <label for="toggle">Click To Slide</label>
-              <label @click="showTable">查看专业</label>
-            </div>
+    <div>
+      <div style="margin-bottom: 10px">
+        <el-input style="width: 200px" placeholder="查询城市" v-model="city"></el-input>
+        <el-button type="primary" @click="load(1)" style="margin-left: 10px">查询</el-button>
+        <el-button type="warning" @click="reset">重置</el-button>
+      </div>
+      <el-card style="width: 100%">
+        <div slot="header" class="clearfix">
+          <span>数据</span>
+        </div>
+        <div>
+          <el-table :data="tableData" stripe :header-cell-style="{backgroundColor: 'aliceblue', fontWeight: 'bold', color: '#666'}" @selection-change="handleSelectionChange">
+            <el-table-column type="selection" align="center"></el-table-column>
+            <el-table-column label="school" prop="school" align="center"></el-table-column>
+            <el-table-column label="sub" prop="sub" align="center"></el-table-column>
+            <el-table-column label="city" prop="city" align="center" show-overflow-tooltip></el-table-column>
+            <el-table-column label="person23" prop="person23" align="center"></el-table-column>
+            <el-table-column label="person22" prop="person22" align="center"></el-table-column>
+            <el-table-column label="person21" prop="person21" align="center"></el-table-column>
+          </el-table>
+          <div style="margin: 10px 0">
+            <el-pagination
+                @current-change="handleCurrentChange"
+                :current-page="pageNum"
+                :page-sizes="[100, 200, 300, 400]"
+                :page-size="pageSize"
+                layout="total,prev, pager, next"
+                :total="total">
+            </el-pagination>
           </div>
         </div>
-      </div>
+      </el-card>
     </div>
-    <div class="additional-content">
-      <!-- 这里添加你的额外内容 -->
-      <p>这里是底部显示的内容</p>
+    <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+      点我打开
+    </el-button>
+    <div style="background-color: #409EFF">
+      <el-drawer
+          title="选择"
+          :visible.sync="drawer"
+          size="50%"
+      >
+        <el-button @click="schoolDrawer = true">学校</el-button>
+        <el-button @click="areaDrawer = true">地区</el-button>
+        <el-button @click="gradeDrawer = true">分数线</el-button>
+        <div>
+          <el-drawer
+              title="选择学校"
+              size="40%"
+              :append-to-body="true"
+              :before-close="handleClose"
+              :visible.sync="schoolDrawer"
+          >
+            <el-button @click="schoolDrawer = false">返回</el-button>
+            <p>_(:зゝ∠)_</p>
+          </el-drawer>
+        </div>
+        <div>
+          <el-drawer
+              title="选择地区"
+              size="40%"
+              :append-to-body="true"
+              :before-close="handleClose"
+              :visible.sync="areaDrawer"
+          >
+            <el-button @click="areaDrawer = false">返回</el-button>
+            <p>_(:зゝ∠)_</p>
+            <el-button>华北</el-button>
+            <el-button>华南</el-button>
+            <el-button>华中</el-button>
+            <el-button>华西</el-button>
+            <el-button>华东</el-button>
+          </el-drawer>
+        </div>
+        <div>
+          <el-drawer
+              title="选择分数线"
+              size="40%"
+              :append-to-body="true"
+              :before-close="handleClose"
+              :visible.sync="gradeDrawer"
+          >
+            <el-button @click="gradeDrawer = false">返回</el-button>
+            <p>_(:зゝ∠)_</p>
+            <el-card style="width: 95%;margin-left: 20px">
+              <div class="block" style="width: 80%; margin-left: 20px">
+                <el-slider
+                    v-model="value"
+                    range
+                    show-stops
+                    :min="250"
+                    :max="500"
+                    :marks="marks">
+                </el-slider>
+              </div>
+            </el-card>
+          </el-drawer>
+        </div>
+      </el-drawer>
     </div>
+
+
+    <div>
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div>
+            <el-statistic
+                group-separator=","
+                :value="value2"
+                :title="title"
+            ></el-statistic>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div>
+            <el-statistic title="已统计院校">
+              <template slot="formatter">
+                15
+              </template>
+            </el-statistic>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div>
+            <el-statistic
+                group-separator=","
+                :precision="2"
+                decimal-separator="."
+                :value="value1"
+                :title="title"
+            >
+              <template slot="prefix">
+                <i class="el-icon-s-flag" style="color: red"></i>
+              </template>
+              <template slot="suffix">
+                <i class="el-icon-s-flag" style="color: blue"></i>
+              </template>
+            </el-statistic>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div>
+            <el-statistic :value="like ? 521 : 520" title="Feedback">
+              <template slot="suffix">
+              <span @click="like = !like" class="like">
+                <i
+                    class="el-icon-star-on"
+                    style="color:red"
+                    v-show="!!like"
+                ></i>
+                <i class="el-icon-star-off" v-show="!like"></i>
+              </span>
+              </template>
+            </el-statistic>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+
   </div>
 </template>
 
 <script>
+import gsap from 'gsap';
+import lottie from "vue-lottie";
+import * as animationData from '../../assets/load.json';
 export default {
-  name: "Analyze",
-  props: {},
-  components: {},
+  name: 'analyze',
   data() {
     return {
-      tableVisible: false
+      drawer: false,
+      schoolDrawer: false,
+      areaDrawer: false,
+      gradeDrawer: false,
+      user: JSON.parse(localStorage.getItem('pilot') || '{}'),
+      tableData: [],
+      pageNum: 1,
+      pageSize: 5,
+      city: '',
+      total: 0,
+      formVisible: false,
+      form: {
+        title: '',
+        description: '',
+        content: '',
+      },
+      ids: [],
+      content: '',
+      rules: {
+        school: [
+          {required: true, message: '请输入学校', trigger: 'blur'}
+        ],
+        sub: [
+          {required: true, message: '请选择学科', trigger: 'blur'}
+        ]
+      },
+      value: [300, 350],
+      marks: {
+        250: '250',
+        300: '300',
+        350: '350',
+        400: '400',
+        450: '450',
+        500: '500',
+      },
+      like: true,
+      value1: 4154.564,
+      value2: 1314,
+      title: "已注册用户",
     }
   },
-  created() {
+  mounted() {
+    if (!this.user.id) {
+      this.$router.push('/login')
+    }
+    this.load()
   },
-  mounted: {},
   methods: {
-    showTable() {
-      document.body.style.overflowY = 'auto'
+    handleSelectionChange(rows) {
+      this.ids = rows.map(v => v.id)
+      console.log(rows)
     },
-  },
+    reset() {
+      this.city = ''
+      this.load()
+    },
+    load(pageNum) {
+      if (pageNum) {
+        this.pageNum = pageNum
+      }
+      this.$request.get('/tables/selectByPage', {
+        params: {
+          pageNum: this.pageNum,
+          pageSize: this.pageSize,
+          city: this.city
+        }
+      }).then(res => {
+        if (res.data) {
+          // 确保在访问其属性之前，res.data不为null
+          this.tableData = res.data.records || [];
+          this.total = res.data.total;
+        } else {
+          // 处理res.data为null的情况
+          this.tableData = [];
+          this.total = 0;
+        }
+      });
+    },
+    handleCurrentChange(pageNum) {
+      this.pageNum = pageNum
+      this.load()
+    },
+    handleClose() {
+      // 处理关闭抽屉的逻辑，例如将抽屉的 visible 设置为 false
+      this.drawer = false;
+      this.schoolDrawer = false;
+      this.areaDrawer = false;
+      this.gradeDrawer = false;
+    }
+  }
 }
 </script>
 
 <style>
-body {
-  overflow-y: hidden;
-}
-
-.bob {
-  width: 100%;
-  height: 100vh;
-  overflow-y: hidden;
-}
-
-.center {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.main {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.layers {
-  width: 200%;
-  height: 100%;
-  display: flex;
-  transition: cubic-bezier(0.71, 0, 0.36, 1) 0.8s;
-}
-
-.layer {
-  width: 100vw;
-  height: 100%;
-  background-color: rgb(255,239,219);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  flex-direction: column;
-}
-
-.layer:nth-child(2) {
-  background-color: rgb(229,254,193);
-}
-
-.layer .text {
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
-  font-size: 175px;
-  font-weight: 500;
-  color: rgb(255,213,159);
-  transition: cubic-bezier(0.71, 0, 0.36, 1) 1.2s;
-}
-
-.layer:nth-child(2) .text {
-  color: rgb(181,235,115);
-}
-
-.container {
-  position: relative;
-  overflow: hidden;
-  margin-top: 75px;
-}
-
-.can {
-  width: 200px;
-}
-
-.can img {
-  top: 50%;
-  left: 50%;
-  width: 200px;
-}
-
-.wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 90%;
-  mix-blend-mode: multiply;
-  transition: cubic-bezier(0.71, 0, 0.36, 1) 1.2s;
-}
-
-.wrapper img {
-  height: 100%;
-  mix-blend-mode: multiply;
-}
-
-#toggle:checked ~ .main .layers {
-  transform: translateX(-50%);
-}
-
-#toggle:checked ~ .main .layers .layer:nth-child(1) .text {
-  left: 150%
-}
-
-#toggle:checked ~ .main .layers .layer:nth-child(1) .wrapper {
-  left: -50%
-}
-#toggle:not(:checked) ~ .main .layers .layer:nth-child(2) .text {
-  left: -50%
-}
-
-#toggle:not(:checked) ~ .main .layers .layer:nth-child(2) .wrapper {
-  left: 150%
-}
-
-.layer label {
-  display: block;
-  padding: 10px 20px;
-  font-size: 16px;
-  border:2px solid black;
-  border-radius: 25px;
+.like {
   cursor: pointer;
-  margin-top: 20px;
+  font-size: 25px;
+  display: inline-block;
 }
-
-#toggle {
-  display: none;
-}
-
-.additional-content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-  background-color: #f0f0f0; /* 为底部内容添加背景色，可根据需要调整 */
-}
-
 </style>
