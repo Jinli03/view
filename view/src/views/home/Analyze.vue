@@ -1,11 +1,14 @@
 <template>
   <div>
+
     <div>
-      <div style="margin-bottom: 10px">
-        <el-input style="width: 200px" placeholder="查询城市" v-model="city"></el-input>
-        <el-button type="primary" @click="load(1)" style="margin-left: 10px">查询</el-button>
-        <el-button type="warning" @click="reset">重置</el-button>
-      </div>
+      <el-card>
+        <div style="margin-bottom: 10px">
+          <el-input style="width: 200px" placeholder="查询城市" v-model="city"></el-input>
+          <el-button type="primary" @click="load(1)" style="margin-left: 10px">查询</el-button>
+          <el-button type="warning" @click="reset">重置</el-button>
+        </div>
+      </el-card>
       <el-card style="width: 100%">
         <div slot="header" class="clearfix">
           <span>数据</span>
@@ -33,9 +36,69 @@
         </div>
       </el-card>
     </div>
+
+    <div style="margin-top: 20px">
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div>
+            <el-statistic
+                group-separator=","
+                :value="value1"
+                :title="title1"
+            >
+              <template slot="prefix">
+                <i class="el-icon-user"></i>
+              </template>
+            </el-statistic>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div>
+            <el-statistic
+                group-separator=","
+                :value="value2"
+                :title="title2"
+            >
+              <template slot="prefix">
+                <i class="el-icon-house"></i>
+              </template>
+            </el-statistic>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div>
+            <el-statistic
+                group-separator=","
+                :value="value3"
+                :title="title3"
+            >
+              <template slot="prefix">
+                <i class="el-icon-search"></i>
+              </template>
+            </el-statistic>
+          </div>
+        </el-col>
+        <el-col :span="6">
+            <div style="width: 100%; display: inline-block;">
+              <el-statistic
+                  format="DD天"
+                  :value="deadline"
+                  time-indices
+                  title="🚩距离考研还有："
+              >
+                <template slot="prefix">
+                  <i class="el-icon-sunrise"></i>
+                </template>
+              </el-statistic>
+            </div>
+        </el-col>
+      </el-row>
+    </div>
+
     <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
-      点我打开
+      层次查询
     </el-button>
+
     <div style="background-color: #409EFF">
       <el-drawer
           title="选择"
@@ -100,65 +163,6 @@
         </div>
       </el-drawer>
     </div>
-
-
-    <div>
-      <el-row :gutter="20">
-        <el-col :span="6">
-          <div>
-            <el-statistic
-                group-separator=","
-                :value="value2"
-                :title="title"
-            ></el-statistic>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div>
-            <el-statistic title="已统计院校">
-              <template slot="formatter">
-                15
-              </template>
-            </el-statistic>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div>
-            <el-statistic
-                group-separator=","
-                :precision="2"
-                decimal-separator="."
-                :value="value1"
-                :title="title"
-            >
-              <template slot="prefix">
-                <i class="el-icon-s-flag" style="color: red"></i>
-              </template>
-              <template slot="suffix">
-                <i class="el-icon-s-flag" style="color: blue"></i>
-              </template>
-            </el-statistic>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div>
-            <el-statistic :value="like ? 521 : 520" title="Feedback">
-              <template slot="suffix">
-              <span @click="like = !like" class="like">
-                <i
-                    class="el-icon-star-on"
-                    style="color:red"
-                    v-show="!!like"
-                ></i>
-                <i class="el-icon-star-off" v-show="!like"></i>
-              </span>
-              </template>
-            </el-statistic>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-
   </div>
 </template>
 
@@ -188,14 +192,6 @@ export default {
       },
       ids: [],
       content: '',
-      rules: {
-        school: [
-          {required: true, message: '请输入学校', trigger: 'blur'}
-        ],
-        sub: [
-          {required: true, message: '请选择学科', trigger: 'blur'}
-        ]
-      },
       value: [300, 350],
       marks: {
         250: '250',
@@ -205,10 +201,13 @@ export default {
         450: '450',
         500: '500',
       },
-      like: true,
+      deadline: new Date("2024-12-25"),
+      title1: "已注册用户",
+      title2: "已上传院校数量",
+      title3: "网页访问量",
       value1: 4154.564,
       value2: 1314,
-      title: "已注册用户",
+      value3: 1314,
     }
   },
   mounted() {
@@ -248,6 +247,7 @@ export default {
         }
       });
     },
+
     handleCurrentChange(pageNum) {
       this.pageNum = pageNum
       this.load()
