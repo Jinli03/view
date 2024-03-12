@@ -97,15 +97,13 @@ public class TablesController {
         return Result.success(page);
     }
 
-    @GetMapping("/charts")
-    public Result charts() {
-        List<Tables> list = tablesService.list(Wrappers.<Tables>lambdaQuery().eq(Tables::getId, 1));
-
+    @GetMapping("/charts/{id}")
+    public Result charts(@PathVariable Integer id) {
+        List<Tables> list = tablesService.list(Wrappers.<Tables>lambdaQuery().eq(Tables::getId, id));
         // 合并 person23、person22 和 person21 的值成一个单一的数组
         List<Integer> combinedData = list.stream()
                 .flatMap(table -> Stream.of(table.getPerson21(), table.getPerson22(), table.getPerson23()))
                 .collect(Collectors.toList());
-
         return Result.success(combinedData);
     }
 

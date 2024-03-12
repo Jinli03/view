@@ -33,6 +33,7 @@ const routes = [
     children: [
       { path: 'homepage', name: 'HomePage', meta: { name: '主页'}, component: () => import('../views/home/HomePage.vue')},
       { path: 'analyze', name: 'Analyze', meta: { name: '分析局'}, component: () => import('../views/home/Analyze.vue')},
+      { path: 'info', name: 'Info', meta: { name: '详情'}, component: () => import('../views/home/Info.vue')},
       { path: 'personal', name: 'Personal', meta: { name: '个人'}, component: () => import('../views/home/Personal.vue')},
       { path: 'person', name: 'Person', meta: { name: '个人信息'}, component: () => import('../views/home/Person.vue')},
       { path: 'password', name: 'Password', meta: { name: '修改密码'}, component: () => import('../views/home/Password.vue')},

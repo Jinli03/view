@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${ip}:3306/mydb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://${ip}:3306/view?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: Jinli03
+    password: Abc123!!
   devtools:
     restart:
       enable: true
@@ -17,4 +17,4 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 20MB
-ip: localhost
+ip: 122.51.129.82

@@ -21,15 +21,15 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Tables {
     @TableId(type= IdType.AUTO)
-    private Integer id;
-    private String school;
-    private String sub;
-    private Integer subcode;
-    private String city;
-    private String square;
-    private Integer person23;
-    private Integer reperson23;
-    private Integer rescore23;
+    private Integer id;//不用管
+    private String school;//学校
+    private String sub;//专业
+    private Integer subcode;//专业代码
+    private String city;//城市
+    private String square;//地区 eg华东
+    private Integer person23;//招收人数
+    private Integer reperson23;//复试人数
+    private Integer rescore23;//复试分数线
     private Integer person22;
     private Integer reperson22;
     private Integer rescore22;

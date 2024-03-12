@@ -16,12 +16,17 @@
         <div>
           <el-table :data="tableData" stripe :header-cell-style="{backgroundColor: 'aliceblue', fontWeight: 'bold', color: '#666'}" @selection-change="handleSelectionChange">
             <el-table-column type="selection" align="center"></el-table-column>
-            <el-table-column label="school" prop="school" align="center"></el-table-column>
-            <el-table-column label="sub" prop="sub" align="center"></el-table-column>
-            <el-table-column label="city" prop="city" align="center" show-overflow-tooltip></el-table-column>
-            <el-table-column label="person23" prop="person23" align="center"></el-table-column>
-            <el-table-column label="person22" prop="person22" align="center"></el-table-column>
-            <el-table-column label="person21" prop="person21" align="center"></el-table-column>
+            <el-table-column label="学校" prop="school" align="center"></el-table-column>
+            <el-table-column label="专业" prop="sub" align="center"></el-table-column>
+            <el-table-column label="城市" prop="city" align="center" show-overflow-tooltip></el-table-column>
+            <el-table-column label="23年复试人数" prop="person23" align="center"></el-table-column>
+            <el-table-column label="22年复试人数" prop="person22" align="center"></el-table-column>
+            <el-table-column label="21年复试人数" prop="person21" align="center"></el-table-column>
+            <el-table-column label="操作" align="center">
+              <template v-slot="scope">
+                <el-button @click="$router.push('Info?id=' + scope.row.id)" size="mini">查看详情</el-button>
+              </template>
+            </el-table-column>
           </el-table>
           <div style="margin: 10px 0">
             <el-pagination
@@ -181,7 +186,7 @@ export default {
       user: JSON.parse(localStorage.getItem('pilot') || '{}'),
       tableData: [],
       pageNum: 1,
-      pageSize: 5,
+      pageSize: 7,
       city: '',
       total: 0,
       formVisible: false,
@@ -210,11 +215,14 @@ export default {
       value3: 1314,
     }
   },
-  mounted() {
+  created() {
     if (!this.user.id) {
       this.$router.push('/login')
     }
     this.load()
+  },
+  mounted() {
+
   },
   methods: {
     handleSelectionChange(rows) {
