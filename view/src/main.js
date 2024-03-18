@@ -9,6 +9,9 @@ import request from "@/utils/request"
 import 'highlight.js/styles/monokai-sublime.css'
 import { gsap } from 'gsap'
 import lottie from 'vue-lottie'
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+Vue.use(Antd);
 Vue.component('lottie',lottie)
 Vue.config.productionTip = false
 Vue.use(ElementUI,{size:'small'});

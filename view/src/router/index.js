@@ -38,6 +38,7 @@ const routes = [
       { path: 'personal', name: 'Personal', meta: { name: '个人'}, component: () => import('../views/home/Personal.vue')},
       { path: 'person', name: 'Person', meta: { name: '个人信息'}, component: () => import('../views/home/Person.vue')},
       { path: 'password', name: 'Password', meta: { name: '修改密码'}, component: () => import('../views/home/Password.vue')},
+      { path: 'one', name: 'One', meta: { name: '具体学校'}, component: () => import('../views/home/One.vue')},
 ]
 },
   { path: '/element', name: 'Element', meta: { name: 'element'}, component: () => import('../views/Element.vue')},

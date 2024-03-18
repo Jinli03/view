@@ -82,9 +82,11 @@ public class TablesController {
     @GetMapping("/selectByPage")
     public Result selectByPage(@RequestParam Integer pageNum,
                                @RequestParam Integer pageSize,
-                               @RequestParam(name = "city", required = false) String city) {
-        QueryWrapper<Tables> queryWrapper = new QueryWrapper<Tables>().orderByDesc("id");
-        queryWrapper.like(StrUtil.isNotBlank(city), "city", city);
+                               @RequestParam(name = "square", required = false) String square) {
+        QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like(StrUtil.isNotBlank(square), "square", square);
+        queryWrapper.select("school", "city", "square"); // 选择要查询的字段
+        queryWrapper.groupBy("school", "city", "square"); // 使用 GROUP BY 子句确保相同学校下的城市和地区也相同
         Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
         List<Tables> records = page.getRecords();
         for (Tables record : records) {
@@ -97,6 +99,26 @@ public class TablesController {
         return Result.success(page);
     }
 
+    @GetMapping("/selectBySchool")
+    public Result selectBySchool(@RequestParam Integer pageNum,
+                                 @RequestParam Integer pageSize,
+                                 @RequestParam String school) {
+        QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like(StrUtil.isNotBlank(school), "school", school);
+        Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
+        List<Tables> records = page.getRecords();
+        for (Tables record : records) {
+            Integer authorid = record.getUserId();
+            User user = userService.getById(authorid);
+            if (user != null) {
+                record.setUser(user.getName());
+            }
+        }
+        return Result.success(page);
+    }
+
+
+
     @GetMapping("/charts/{id}")
     public Result charts(@PathVariable Integer id) {
         List<Tables> list = tablesService.list(Wrappers.<Tables>lambdaQuery().eq(Tables::getId, id));
@@ -106,6 +128,17 @@ public class TablesController {
                 .collect(Collectors.toList());
         return Result.success(combinedData);
     }
+
+    @GetMapping("/distinctSchools")
+    public Result distinctSchools() {
+        List<Tables> distinctSchools = tablesService.list(Wrappers.<Tables>lambdaQuery()
+                .select(Tables::getSchool, Tables::getCity, Tables::getSquare)
+                .groupBy(Tables::getSchool, Tables::getCity, Tables::getSquare));
+        return Result.success(distinctSchools);
+    }
+
+
+
 
 
 
