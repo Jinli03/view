@@ -6,7 +6,7 @@
 <template>
   <div>
     <h1>
-      {{ school }}
+      hello, {{ school }}
     </h1>
   </div>
 </template>
