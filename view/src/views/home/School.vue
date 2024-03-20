@@ -6,19 +6,19 @@
       <div style="display: flex; flex-wrap: wrap; margin-top: 20px; height: auto;">
         <transition name="el-zoom-in-center">
           <div v-if="show2" style="margin-right: 10px; margin-bottom: 10px;" @click="square='A'; load(1)">
-            <el-button type="primary">A</el-button>
+            <el-radio v-model="radio" label="1">A</el-radio>
           </div>
         </transition>
 
         <transition name="el-zoom-in-top">
           <div v-if="show2" style="margin-right: 10px; margin-bottom: 10px;" @click="square='B'; load(1)">
-            <el-button type="primary">B</el-button>
+            <el-radio v-model="radio" label="2">B</el-radio>
           </div>
         </transition>
 
         <transition name="el-zoom-in-bottom">
           <div v-if="show2" style="margin-right: 10px; margin-bottom: 10px;" @click="square='C'; load(1)">
-            <el-button type="primary">C</el-button>
+            <el-radio v-model="radio" label="3">C</el-radio>
           </div>
         </transition>
       </div>

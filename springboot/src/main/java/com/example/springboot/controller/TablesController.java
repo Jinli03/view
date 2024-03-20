@@ -118,30 +118,64 @@ public class TablesController {
     }
 
 
+    @GetMapping("/distinctSchool/{school}")
+    public Result distinctSchools(@PathVariable String school) {
+        List<Tables> schoolInfo = tablesService.list(Wrappers.<Tables>lambdaQuery()
+                .eq(Tables::getSchool, school));
 
-    @GetMapping("/charts/{id}")
-    public Result charts(@PathVariable Integer id) {
-        List<Tables> list = tablesService.list(Wrappers.<Tables>lambdaQuery().eq(Tables::getId, id));
-        // 合并 person23、person22 和 person21 的值成一个单一的数组
-        List<Integer> combinedData = list.stream()
-                .flatMap(table -> Stream.of(table.getPerson21(), table.getPerson22(), table.getPerson23()))
-                .collect(Collectors.toList());
-        return Result.success(combinedData);
+        // 根据 sub 属性进行分组
+        Map<String, List<Tables>> groupedBySub = schoolInfo.stream()
+                .collect(Collectors.groupingBy(Tables::getSub));
+
+        // 提取每个分组中的招收人数列表
+        Map<String, List<Integer>> personGroups = new HashMap<>();
+        for (Map.Entry<String, List<Tables>> entry : groupedBySub.entrySet()) {
+            List<Tables> tablesList = entry.getValue();
+            List<Integer> personList = new ArrayList<>();
+            for (Tables tables : tablesList) {
+                personList.add(tables.getPerson21());
+                personList.add(tables.getPerson22());
+                personList.add(tables.getPerson23());
+                // 您可以继续根据需要添加更多的 person 属性
+            }
+            personGroups.put(entry.getKey(), personList);
+        }
+
+        // 提取每个分组中的复试人数列表
+        Map<String, List<Integer>> repersonGroups = new HashMap<>();
+        for (Map.Entry<String, List<Tables>> entry : groupedBySub.entrySet()) {
+            List<Tables> tablesList = entry.getValue();
+            List<Integer> repersonList = new ArrayList<>();
+            for (Tables tables : tablesList) {
+                repersonList.add(tables.getReperson21());
+                repersonList.add(tables.getReperson22());
+                repersonList.add(tables.getReperson23());
+                // 您可以继续根据需要添加更多的 reperson 属性
+            }
+            repersonGroups.put(entry.getKey(), repersonList);
+        }
+
+        // 提取每个分组中的复试分数线列表
+        Map<String, List<Integer>> rescoreGroups = new HashMap<>();
+        for (Map.Entry<String, List<Tables>> entry : groupedBySub.entrySet()) {
+            List<Tables> tablesList = entry.getValue();
+            List<Integer> rescoreList = new ArrayList<>();
+            for (Tables tables : tablesList) {
+                rescoreList.add(tables.getRescore21());
+                rescoreList.add(tables.getRescore22());
+                rescoreList.add(tables.getRescore23());
+                // 您可以继续根据需要添加更多的 rescore 属性
+            }
+            rescoreGroups.put(entry.getKey(), rescoreList);
+        }
+
+        // 构建返回结果
+        Map<String, Object> result = new HashMap<>();
+        result.put("personGroups", personGroups);
+        result.put("repersonGroups", repersonGroups);
+        result.put("rescoreGroups", rescoreGroups);
+
+        return Result.success(result);
     }
-
-    @GetMapping("/distinctSchools")
-    public Result distinctSchools() {
-        List<Tables> distinctSchools = tablesService.list(Wrappers.<Tables>lambdaQuery()
-                .select(Tables::getSchool, Tables::getCity, Tables::getSquare)
-                .groupBy(Tables::getSchool, Tables::getCity, Tables::getSquare));
-        return Result.success(distinctSchools);
-    }
-
-
-
-
-
-
-
 
 }

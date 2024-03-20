@@ -8,10 +8,109 @@
     <h1>
       hello, {{ school }}
     </h1>
+    <el-col :span="8">
+      <el-card>
+        <div id="person" style="width: 100%; height: 400px"></div>
+      </el-card>
+    </el-col>
+    <el-col :span="8">
+      <el-card>
+        <div id="reperson" style="width: 100%; height: 400px"></div>
+      </el-card>
+    </el-col>
+    <el-col :span="8">
+      <el-card>
+        <div id="rescore" style="width: 100%; height: 400px"></div>
+      </el-card>
+    </el-col>
   </div>
 </template>
 
 <script>
+
+import * as echarts from "echarts";
+
+const option1 = {
+  title: {
+    text: '历年录取人数',
+    subtext: 'Fake Data',
+    left: 'center'
+  },
+  xAxis: {
+    type: 'category',
+    data: ['2021', '2022', '2023']
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left'
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '',
+      data: [],
+    },
+  ]
+};
+const option2 = {
+  title: {
+    text: '历年复试人数',
+    subtext: 'Fake Data',
+    left: 'center'
+  },
+  xAxis: {
+    type: 'category',
+    data: ['2021', '2022', '2023']
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left'
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '',
+      data: [],
+    },
+  ]
+};
+const option3 = {
+  title: {
+    text: '历年复试分数',
+    subtext: 'Fake Data',
+    left: 'center'
+  },
+  xAxis: {
+    type: 'category',
+    data: ['2021', '2022', '2023']
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left'
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '',
+      data: [],
+    },
+  ]
+};
 export default {
   name: "oneSchool",
   props: {},
@@ -19,8 +118,7 @@ export default {
   data() {
     return {
       school: '',
-      pageNum: 1,
-      pageSize: 10, // 设置默认值，根据需要调整
+      tables: []
     }
   },
   created() {
@@ -38,23 +136,103 @@ export default {
       if (this.pageNum) { // 使用 this.pageNum 而不是 pageNum
         this.pageNum = this.pageNum;
       }
-      this.$request.get('/tables/selectBySchool', {
-        params: {
-          pageNum: this.pageNum,
-          pageSize: this.pageSize,
-          school: this.school
+      let school = this.school
+      this.$request.get('/tables/distinctSchool/' + school ).then(res => {
+        this.tables = res.data
+        //录取人数
+      let personDom = document.getElementById('person')
+      let personChart = echarts.init(personDom)
+        // 初始化系列数组
+        const series1 = [];
+
+// 循环遍历personGroups对象中的所有子属性
+        for (const sub in this.tables.personGroups) {
+          if (Object.hasOwnProperty.call(this.tables.personGroups, sub)) {
+            // 获取子属性对应的数组
+            const subArray1 = this.tables.personGroups[sub];
+
+            // 生成系列对象
+            const seriesItem1 = {
+              name: sub, // 使用子属性作为系列名称
+              data: subArray1, // 使用子属性对应的数组作为系列数据
+              type: 'line',
+              smooth: true
+            };
+
+            // 将系列对象添加到系列数组中
+            series1.push(seriesItem1);
+          }
         }
-      }).then(res => {
-        if (res.data) {
-          // 确保在访问其属性之前，res.data不为null
-          this.schools = res.data.records;
-          console.log('Response data:', res.data);
-          this.total = res.data.total;
-        } else {
-          // 处理res.data为null的情况
-          this.schools = [];
-          this.total = 0;
+
+// 设置ECharts的series属性
+        option1.series = series1;
+
+// 更新图表
+        personChart.setOption(option1);
+
+
+        //复试人数
+        let repersonDom = document.getElementById('reperson')
+        let repersonChart = echarts.init(repersonDom)
+          // 初始化系列数组
+          const series2 = [];
+
+// 循环遍历personGroups对象中的所有子属性
+          for (const sub in this.tables.repersonGroups) {
+            if (Object.hasOwnProperty.call(this.tables.repersonGroups, sub)) {
+              // 获取子属性对应的数组
+              const subArray2 = this.tables.repersonGroups[sub];
+
+              // 生成系列对象
+              const seriesItem2 = {
+                name: sub, // 使用子属性作为系列名称
+                data: subArray2, // 使用子属性对应的数组作为系列数据
+                type: 'line',
+                smooth: true
+              };
+
+              // 将系列对象添加到系列数组中
+              series2.push(seriesItem2);
+            }
+          }
+
+// 设置ECharts的series属性
+          option2.series = series2;
+
+// 更新图表
+          repersonChart.setOption(option2);
+
+
+          //复试分数
+        let rescoreDom = document.getElementById('rescore')
+        let rescoreChart = echarts.init(rescoreDom)
+        // 初始化系列数组
+        const series3 = [];
+
+// 循环遍历personGroups对象中的所有子属性
+        for (const sub in this.tables.rescoreGroups) {
+          if (Object.hasOwnProperty.call(this.tables.rescoreGroups, sub)) {
+            // 获取子属性对应的数组
+            const subArray3 = this.tables.rescoreGroups[sub];
+
+            // 生成系列对象
+            const seriesItem3 = {
+              name: sub, // 使用子属性作为系列名称
+              data: subArray3, // 使用子属性对应的数组作为系列数据
+              type: 'line',
+              smooth: true
+            };
+
+            // 将系列对象添加到系列数组中
+            series3.push(seriesItem3);
+          }
         }
+
+// 设置ECharts的series属性
+        option3.series = series3;
+
+// 更新图表
+        rescoreChart.setOption(option3);
       }).catch(error => {
         console.error('Error fetching data:', error);
       });
