@@ -16,7 +16,7 @@
           <el-dropdown placement="bottom">
             <div style="display: flex; align-items: center; cursor: default">
               <img :src="user.title || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style=" width: 40px; height: 40px; border-radius: 50%">
-              <span>管理员</span>
+              <span>{{ user.name }}</span>
             </div>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item @click.native="$router.push('/person')">个人信息</el-dropdown-item>

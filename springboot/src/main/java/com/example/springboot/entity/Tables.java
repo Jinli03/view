@@ -36,6 +36,7 @@ public class Tables {
     private Integer person21;
     private Integer reperson21;
     private Integer rescore21;
+    private String pic;
     @TableField(exist = false)
     private Integer userId;
     @TableField(exist = false)

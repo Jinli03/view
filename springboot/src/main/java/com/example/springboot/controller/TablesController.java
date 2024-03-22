@@ -85,8 +85,8 @@ public class TablesController {
                                @RequestParam(name = "square", required = false) String square) {
         QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
         queryWrapper.like(StrUtil.isNotBlank(square), "square", square);
-        queryWrapper.select("school", "city", "square"); // 选择要查询的字段
-        queryWrapper.groupBy("school", "city", "square"); // 使用 GROUP BY 子句确保相同学校下的城市和地区也相同
+        queryWrapper.select("school", "city", "square", "pic"); // 选择要查询的字段
+        queryWrapper.groupBy("school", "city", "square", "pic"); // 使用 GROUP BY 子句确保相同学校下的城市和地区也相同
         Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
         List<Tables> records = page.getRecords();
         for (Tables record : records) {

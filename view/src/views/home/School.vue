@@ -25,86 +25,25 @@
 
     </div>
 
-    <div>
-      <el-row :gutter="20" style="padding: 8px">
-        <el-col :span="6" v-for="school in schools" :key="school.id" style="padding: 10px">
-          <el-card class="card-item" style="cursor: pointer">
-            <div slot="header">
-              <span>{{ school.school }}</span>
-            </div>
-            <div>
-              <p>城市: {{ school.city }}</p>
-              <p>地区: {{ school.square }}</p>
-              <div slot="footer">
-                <el-button @click="$router.push('One?school=' + school.school)" size="mini">查看详情</el-button>
+      <div>
+        <el-row :gutter="20" style="padding: 8px">
+          <el-col :span="6" v-for="school in schools" :key="school.id" style="padding: 10px">
+            <el-card class="card-item" style="cursor: pointer; background-size: cover" :style="{ backgroundImage: 'url(' + school.pic + ')' }">
+              <div slot="header">
+                <span>{{ school.school }}</span>
               </div>
-              <!-- 在这里添加更多数据 -->
-            </div>
-
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div style="margin-top: 20px">
-      <transition name="fade">
-        <el-row :gutter="20">
-          <el-col :span="6">
-            <div>
-              <el-statistic
-                  group-separator=","
-                  :value="value1"
-                  :title="title1"
-              >
-                <template slot="prefix">
-                  <i class="el-icon-user"></i>
-                </template>
-              </el-statistic>
-            </div>
-          </el-col>
-          <el-col :span="6">
-            <div>
-              <el-statistic
-                  group-separator=","
-                  :value="value2"
-                  :title="title2"
-              >
-                <template slot="prefix">
-                  <i class="el-icon-house"></i>
-                </template>
-              </el-statistic>
-            </div>
-          </el-col>
-          <el-col :span="6">
-            <div>
-              <el-statistic
-                  group-separator=","
-                  :value="value3"
-                  :title="title3"
-              >
-                <template slot="prefix">
-                  <i class="el-icon-search"></i>
-                </template>
-              </el-statistic>
-            </div>
-          </el-col>
-          <el-col :span="6">
-              <div style="width: 100%; display: inline-block;">
-                <el-statistic
-                    format="DD天"
-                    :value="deadline"
-                    time-indices
-                    title="🚩距离考研还有："
-                >
-                  <template slot="prefix">
-                    <i class="el-icon-sunrise"></i>
-                  </template>
-                </el-statistic>
+              <div>
+                <p>城市: {{ school.city }}</p>
+                <p>地区: {{ school.square }}</p>
+                <div slot="footer">
+                  <el-button @click="$router.push('One?school=' + school.school)" size="mini">查看详情</el-button>
+                </div>
+                <!-- 在这里添加更多数据 -->
               </div>
+            </el-card>
           </el-col>
         </el-row>
-      </transition>
-    </div>
+      </div>
 
   </div>
 </template>
@@ -135,13 +74,6 @@ export default {
       },
       ids: [],
       content: '',
-      deadline: new Date("2024-12-25"),
-      title1: "已注册用户",
-      title2: "已上传院校数量",
-      title3: "网页访问量",
-      value1: 4154.564,
-      value2: 1314,
-      value3: 1314,
       show2: false
     }
   },
@@ -212,13 +144,23 @@ export default {
   transform: scale(1.1);
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
+.data-container {
+
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
-.data-container {
 
+.zoom-in-top-enter-active, .zoom-in-top-leave-active {
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.zoom-in-top-enter, .zoom-in-top-leave-to {
+  transform: translateY(-100%);
 }
 </style>

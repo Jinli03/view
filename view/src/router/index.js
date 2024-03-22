@@ -23,8 +23,7 @@ const routes = [
       { path: 'echarts', name: 'Echarts', meta: { name: '图表信息'}, component: () => import('../views/manager/Echarts.vue')},
       { path: 'notice', name: 'Notice', meta: { name: '系统公告'}, component: () => import('../views/manager/Notice.vue')},
       { path: 'tables', name: 'Tables', meta: { name: '查询名称'}, component: () => import('../views/manager/Tables.vue')},
-    ]
-  },
+  ]},
   {
   path: '/',
     name: 'Menu',
@@ -32,7 +31,7 @@ const routes = [
     redirect: 'homepage',//重定向
     children: [
       { path: 'homepage', name: 'HomePage', meta: { name: '主页'}, component: () => import('../views/home/HomePage.vue')},
-      { path: 'analyze', name: 'Analyze', meta: { name: '分析局'}, component: () => import('../views/home/Analyze.vue')},
+      { path: 'analyze', name: 'Analyze', meta: { name: '分析局'}, component: () => import('../views/home/Analyze.vue'),},
       { path: 'school', name: 'School', meta: { name: '学校'}, component: () => import('../views/home/School.vue')},
       { path: 'info', name: 'Info', meta: { name: '详情'}, component: () => import('../views/home/Info.vue')},
       { path: 'personal', name: 'Personal', meta: { name: '个人'}, component: () => import('../views/home/Personal.vue')},
