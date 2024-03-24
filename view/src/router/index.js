@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/Manager.vue'
-
+import School from "@/components/School.vue";
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
@@ -32,12 +31,13 @@ const routes = [
     children: [
       { path: 'homepage', name: 'HomePage', meta: { name: '主页'}, component: () => import('../views/home/HomePage.vue')},
       { path: 'analyze', name: 'Analyze', meta: { name: '分析局'}, component: () => import('../views/home/Analyze.vue'),},
-      { path: 'school', name: 'School', meta: { name: '学校'}, component: () => import('../views/home/School.vue')},
+      { path: 'search', name: 'Search', meta: { name: '查询'}, component: () => import('../views/home/Search.vue')},
       { path: 'info', name: 'Info', meta: { name: '详情'}, component: () => import('../views/home/Info.vue')},
+      { path: 'schoolinfo', name: 'Schoolinfo', meta: { name: '学校详情'}, component: () => import('../views/home/Schoolinfo.vue')},
       { path: 'personal', name: 'Personal', meta: { name: '个人'}, component: () => import('../views/home/Personal.vue')},
       { path: 'person', name: 'Person', meta: { name: '个人信息'}, component: () => import('../views/home/Person.vue')},
       { path: 'password', name: 'Password', meta: { name: '修改密码'}, component: () => import('../views/home/Password.vue')},
-      { path: 'one', name: 'One', meta: { name: '具体学校'}, component: () => import('../views/home/One.vue')},
+      { path: 'subinfo', name: 'Subinfo', meta: { name: '具体专业'}, component: () => import('../views/home/Subinfo.vue')},
 ]
 },
   { path: '/element', name: 'Element', meta: { name: 'element'}, component: () => import('../views/Element.vue')},

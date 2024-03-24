@@ -1,7 +1,7 @@
 <!--
-*@oneSchool
+*@Schoolinfo
 *@author Jinli
-*@date 2024/3/19 0:00
+*@date 2024/3/24 21:14
 -->
 <template>
   <div>
@@ -112,7 +112,7 @@ const option3 = {
   ]
 };
 export default {
-  name: "oneSchool",
+  name: "schoolinfo",
   props: {},
   components: {},
   data() {
@@ -140,8 +140,8 @@ export default {
       this.$request.get('/tables/distinctSchool/' + school ).then(res => {
         this.tables = res.data
         //录取人数
-      let personDom = document.getElementById('person')
-      let personChart = echarts.init(personDom)
+        let personDom = document.getElementById('person')
+        let personChart = echarts.init(personDom)
         // 初始化系列数组
         const series1 = [];
 
@@ -174,36 +174,36 @@ export default {
         //复试人数
         let repersonDom = document.getElementById('reperson')
         let repersonChart = echarts.init(repersonDom)
-          // 初始化系列数组
-          const series2 = [];
+        // 初始化系列数组
+        const series2 = [];
 
 // 循环遍历personGroups对象中的所有子属性
-          for (const sub in this.tables.repersonGroups) {
-            if (Object.hasOwnProperty.call(this.tables.repersonGroups, sub)) {
-              // 获取子属性对应的数组
-              const subArray2 = this.tables.repersonGroups[sub];
+        for (const sub in this.tables.repersonGroups) {
+          if (Object.hasOwnProperty.call(this.tables.repersonGroups, sub)) {
+            // 获取子属性对应的数组
+            const subArray2 = this.tables.repersonGroups[sub];
 
-              // 生成系列对象
-              const seriesItem2 = {
-                name: sub, // 使用子属性作为系列名称
-                data: subArray2, // 使用子属性对应的数组作为系列数据
-                type: 'line',
-                smooth: true
-              };
+            // 生成系列对象
+            const seriesItem2 = {
+              name: sub, // 使用子属性作为系列名称
+              data: subArray2, // 使用子属性对应的数组作为系列数据
+              type: 'line',
+              smooth: true
+            };
 
-              // 将系列对象添加到系列数组中
-              series2.push(seriesItem2);
-            }
+            // 将系列对象添加到系列数组中
+            series2.push(seriesItem2);
           }
+        }
 
 // 设置ECharts的series属性
-          option2.series = series2;
+        option2.series = series2;
 
 // 更新图表
-          repersonChart.setOption(option2);
+        repersonChart.setOption(option2);
 
 
-          //复试分数
+        //复试分数
         let rescoreDom = document.getElementById('rescore')
         let rescoreChart = echarts.init(rescoreDom)
         // 初始化系列数组

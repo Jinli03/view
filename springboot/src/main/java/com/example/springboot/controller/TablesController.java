@@ -7,6 +7,7 @@ package com.example.springboot.controller;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot.common.AuthAccess;
@@ -82,11 +83,54 @@ public class TablesController {
     @GetMapping("/selectByPage")
     public Result selectByPage(@RequestParam Integer pageNum,
                                @RequestParam Integer pageSize,
-                               @RequestParam(name = "square", required = false) String square) {
+                               @RequestParam(name = "square", required = false) String square,
+                               @RequestParam(name = "city", required = false) String city,
+                               @RequestParam(name = "school", required = false) String school,
+                               @RequestParam(name = "sub", required = false) String sub) {
+        try {
+            QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
+
+            // 添加条件查询
+            if (StringUtils.isNotBlank(square)) {
+                queryWrapper.like("square", square);
+            }
+            if (StringUtils.isNotBlank(city)) {
+                queryWrapper.like("city", city);
+            }
+            if (StringUtils.isNotBlank(school)) {
+                queryWrapper.like("school", school);
+            }
+            if (StringUtils.isNotBlank(sub)) {
+                queryWrapper.like("sub", sub);
+            }
+
+            // 分页查询所有属性
+            Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
+
+            // 返回成功结果
+            return Result.success(page);
+        } catch (Exception e) {
+            // 返回异常结果
+            return Result.error("查询失败：" + e.getMessage());
+        }
+    }
+
+    @GetMapping("/selectBySchool")
+    public Result selectBySchool(
+            @RequestParam Integer pageNum,
+            @RequestParam Integer pageSize,
+            @RequestParam(name = "square", required = false) String square,
+            @RequestParam(name = "city", required = false) String city // 接收以逗号分隔的城市字符串
+    ) {
         QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
         queryWrapper.like(StrUtil.isNotBlank(square), "square", square);
-        queryWrapper.select("school", "city", "square", "pic"); // 选择要查询的字段
-        queryWrapper.groupBy("school", "city", "square", "pic"); // 使用 GROUP BY 子句确保相同学校下的城市和地区也相同
+        // 按逗号分割城市字符串为城市列表
+        if (StrUtil.isNotBlank(city)) {
+            List<String> cities = Arrays.asList(city.split(","));
+            queryWrapper.in("city", cities); // 使用 in 条件进行筛选
+        }
+        queryWrapper.select("school", "city", "square", "pic");
+        queryWrapper.groupBy("school", "city", "square", "pic");
         Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
         List<Tables> records = page.getRecords();
         for (Tables record : records) {
@@ -99,22 +143,76 @@ public class TablesController {
         return Result.success(page);
     }
 
-    @GetMapping("/selectBySchool")
-    public Result selectBySchool(@RequestParam Integer pageNum,
-                                 @RequestParam Integer pageSize,
-                                 @RequestParam String school) {
-        QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like(StrUtil.isNotBlank(school), "school", school);
-        Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
-        List<Tables> records = page.getRecords();
-        for (Tables record : records) {
-            Integer authorid = record.getUserId();
-            User user = userService.getById(authorid);
-            if (user != null) {
-                record.setUser(user.getName());
+    @GetMapping("/selectBySub")
+    public Result selectBySub(@RequestParam Integer pageNum,
+                               @RequestParam Integer pageSize,
+                               @RequestParam(name = "sub", required = false) String sub) {
+        try {
+            QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
+
+            // 添加条件查询
+            if (StringUtils.isNotBlank(sub)) {
+                List<String> subs = Arrays.asList(sub.split(","));
+                queryWrapper.in("sub", subs); // 使用 in 条件进行筛选
             }
+
+            // 分页查询所有属性
+            Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
+
+            // 返回成功结果
+            return Result.success(page);
+        } catch (Exception e) {
+            // 返回异常结果
+            return Result.error("查询失败：" + e.getMessage());
         }
-        return Result.success(page);
+    }
+
+
+    @GetMapping("/distinctSub/{id}")
+    public Result distinctSchools(@PathVariable Integer id) {
+        try {
+            // 根据传入的id查询数据
+            List<Tables> schoolInfo = tablesService.list(Wrappers.<Tables>lambdaQuery()
+                    .eq(Tables::getId, id));
+
+            // 提取每个分组中的招收人数列表
+            List<Integer> personList = new ArrayList<>();
+            for (Tables tables : schoolInfo) {
+                personList.add(tables.getPerson23());
+                personList.add(tables.getPerson22());
+                personList.add(tables.getPerson21());
+                // 您可以继续根据需要添加更多的 person 属性
+            }
+
+            // 提取每个分组中的复试人数列表
+            List<Integer> repersonList = new ArrayList<>();
+            for (Tables tables : schoolInfo) {
+                repersonList.add(tables.getReperson23());
+                repersonList.add(tables.getReperson22());
+                repersonList.add(tables.getReperson21());
+                // 您可以继续根据需要添加更多的 reperson 属性
+            }
+
+            // 提取每个分组中的复试分数线列表
+            List<Integer> rescoreList = new ArrayList<>();
+            for (Tables tables : schoolInfo) {
+                rescoreList.add(tables.getRescore23());
+                rescoreList.add(tables.getRescore22());
+                rescoreList.add(tables.getRescore21());
+                // 您可以继续根据需要添加更多的 rescore 属性
+            }
+
+            // 构建返回结果
+            Map<String, Object> result = new HashMap<>();
+            result.put("personGroups", personList);
+            result.put("repersonGroups", repersonList);
+            result.put("rescoreGroups", rescoreList);
+
+            return Result.success(result);
+        } catch (Exception e) {
+            // 返回异常结果
+            return Result.error("查询失败：" + e.getMessage());
+        }
     }
 
 
@@ -177,5 +275,4 @@ public class TablesController {
 
         return Result.success(result);
     }
-
 }

@@ -6,26 +6,31 @@
 <template>
   <div>
     <el-container>
-      <el-header>
-        <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left: 20px">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ path: $route.path }">{{ $route.meta.name}}</el-breadcrumb-item>
-        </el-breadcrumb>
-        <div style="flex: 1; width: 0; display: flex; align-items: center; justify-content: flex-end">
-          <i class="el-icon-full-screen" style="font-size: 26px; margin-right: 10px" @click="handleFull"></i>
-          <el-dropdown placement="bottom">
-            <div style="display: flex; align-items: center; cursor: default">
-              <img :src="user.title || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style=" width: 40px; height: 40px; border-radius: 50%">
-              <span>{{ user.name }}</span>
-            </div>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item @click.native="$router.push('/person')">个人信息</el-dropdown-item>
-              <el-dropdown-item @click.native="$router.push('/password')">修改密码</el-dropdown-item>
-              <el-dropdown-item @click.native="logout()">退出登录</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </div>
+      <el-header style="border-bottom: 1px solid #ebeef5; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <el-row type="flex" justify="space-between" align="middle" style="height: 100%;">
+          <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left: 20px; margin-top: 5px">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: $route.path }">{{ $route.meta.name }}</el-breadcrumb-item>
+          </el-breadcrumb>
+          <div style="display: flex; align-items: center;">
+            <i class="el-icon-full-screen" style="font-size: 26px; margin-right: 10px" @click="handleFull"></i>
+            <el-dropdown placement="bottom">
+              <div style="display: flex; align-items: center; cursor: pointer;">
+                <img :src="user.title || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style="width: 40px; height: 40px; border-radius: 50%;">
+                <span>{{ user.name }}</span>
+              </div>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item @click.native="$router.push('/person')">个人信息</el-dropdown-item>
+                <el-dropdown-item @click.native="$router.push('/password')">修改密码</el-dropdown-item>
+                <el-dropdown-item @click.native="logout()">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </el-row>
       </el-header>
+
+
+
       <!--        主体-->
       <el-main>
         <router-view @update:user="updateTitle"></router-view>

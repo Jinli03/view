@@ -83,7 +83,7 @@
               </template>
             </div>
             <div>
-              <img src="../../assets/icon/school.png" alt="First Image" class="image1" style="width: 100px; height: 100px; position: absolute; top: 300px; left: 550px;" @click="$router.push('school')">
+              <img src="../../assets/icon/school.png" alt="First Image" class="image1" style="width: 100px; height: 100px; position: absolute; top: 300px; left: 550px;" @click="$router.push('search')">
               <p style="position: absolute; top: 300px; left: 580px; font-size: 20px">学校</p>
             </div>
             <div>
