@@ -3,7 +3,7 @@
     <div>
       <div>
         <div>
-          <img src="../../assets/analyze.png" alt="First Image" class="image1" style="width: 200px; height: 200px; position: absolute; top: 500px; left: 350px;" @click="$router.push('analyze')">
+          <img src="../../assets/analyze.png" alt="First Image" class="image1" style="width: 200px; height: 200px; position: absolute; top: 500px; left: 350px;" @click="$router.push('search')">
           <p style="position: absolute; top: 650px; left: 400px; font-size: 26px">分析局</p>
         </div>
         <div>
