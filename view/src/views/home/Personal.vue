@@ -1,103 +1,104 @@
 <template>
   <div>
     <el-container class="background-image-container">
-      <div style="backdrop-filter: blur(8px); width: 95%; height: 95%">
-        <el-col :span="6">
-          <div>
-            <el-row style="display:flex; justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
-              <img :src="user.title || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style=" width: 50px; height: 50px; border-radius: 50%; margin: 10px">
-              <p style="color: #000c17; margin-top: 15px">"静水流深<br>沧笙踏歌"</p>
-            </el-row>
-            <el-row>
-              <el-card style="justify-content: center; width: 80%; margin-left: 20px; border-radius: 20px">
-                <div>
-                  <el-statistic
-                      group-separator=","
-                      :value="value1"
-                      :title="title1"
-                  >
-                    <template slot="prefix">
-                      <i class="el-icon-user"></i>
-                    </template>
-                  </el-statistic>
-                </div>
-              </el-card>
-
-            </el-row>
-            <el-row>
-              <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
-                <div>
-                  <el-statistic
-                      group-separator=","
-                      :value="value2"
-                      :title="title2"
-                  >
-                    <template slot="prefix">
-                      <i class="el-icon-house"></i>
-                    </template>
-                  </el-statistic>
-                </div>
-              </el-card>
-            </el-row>
-            <el-row>
-              <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
-                <div>
-                  <el-statistic
-                      group-separator=","
-                      :value="value3"
-                      :title="title3"
-                  >
-                    <template slot="prefix">
-                      <i class="el-icon-search"></i>
-                    </template>
-                  </el-statistic>
-                </div>
-              </el-card>
-            </el-row>
-            <el-row>
-              <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
-                <div style="width: 100%; display: inline-block;">
-                  <el-statistic
-                      format="DD天"
-                      :value="deadline"
-                      time-indices
-                      title="🚩距离考研还有："
-                  >
-                    <template slot="prefix">
-                      <i class="el-icon-sunrise"></i>
-                    </template>
-                  </el-statistic>
-                </div>
-              </el-card>
-            </el-row>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div style="backdrop-filter: blur(8px); width: 90%; height: 100%">
-            <div style="margin-left: 100px">
-              <template>
-                <el-carousel :interval="3000" type="card" height="180px">
-                  <el-carousel-item v-for="item in 6" :key="item">
-                  </el-carousel-item>
-                </el-carousel>
-              </template>
-            </div>
+      <div style=" width: 95%; height: 95%">
+        <el-row :gutter="20">
+          <el-col :span="6" style="backdrop-filter: blur(20px); border-radius: 10px">
             <div>
-              <img src="../../assets/icon/school.png" alt="First Image" class="image1" style="width: 100px; height: 100px; position: absolute; top: 300px; left: 550px;" @click="$router.push('school')">
-              <p style="position: absolute; top: 300px; left: 580px; font-size: 20px">学校</p>
-            </div>
-            <div>
-              <img src="@/assets/icon/major.png" alt="Second Image" class="image2" style="width: 100px; height: 100px; position: absolute; top: 300px; left: 650px" @click="$router.push('personal')">
-              <p style="position: absolute; top: 300px; left: 680px; font-size: 20px">专业</p>
-            </div>
-          </div>
-        </el-col>
+              <el-row style="display:flex; justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
+                <img :src="user.title || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style=" width: 50px; height: 50px; border-radius: 50%; margin: 10px">
+                <p style="color: #ffffff; margin-top: 15px">"静水流深<br>沧笙踏歌"</p>
+              </el-row>
+              <el-row>
+                <el-card style="justify-content: center; width: 80%; margin-left: 20px; border-radius: 20px">
+                  <div>
+                    <el-statistic
+                        group-separator=","
+                        :value="value1"
+                        :title="title1"
+                    >
+                      <template slot="prefix">
+                        <i class="el-icon-user"></i>
+                      </template>
+                    </el-statistic>
+                  </div>
+                </el-card>
 
-        <el-col :span="6">
-          <div class="vertical-text">
-            <p ref="welcomeText" style="font-size: 42px; color: #8c939d">{{ displayedMessage }}</p>
-          </div>
-        </el-col>
+              </el-row>
+              <el-row>
+                <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
+                  <div>
+                    <el-statistic
+                        group-separator=","
+                        :value="value2"
+                        :title="title2"
+                    >
+                      <template slot="prefix">
+                        <i class="el-icon-house"></i>
+                      </template>
+                    </el-statistic>
+                  </div>
+                </el-card>
+              </el-row>
+              <el-row>
+                <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
+                  <div>
+                    <el-statistic
+                        group-separator=","
+                        :value="value3"
+                        :title="title3"
+                    >
+                      <template slot="prefix">
+                        <i class="el-icon-search"></i>
+                      </template>
+                    </el-statistic>
+                  </div>
+                </el-card>
+              </el-row>
+              <el-row>
+                <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
+                  <div style="width: 100%; display: inline-block;">
+                    <el-statistic
+                        format="DD天"
+                        :value="deadline"
+                        time-indices
+                        title="🚩距离考研还有："
+                    >
+                      <template slot="prefix">
+                        <i class="el-icon-sunrise"></i>
+                      </template>
+                    </el-statistic>
+                  </div>
+                </el-card>
+              </el-row>
+              <el-row>
+                <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; margin-bottom: 10px; border-radius: 20px">
+
+                </el-card>
+              </el-row>
+            </div>
+          </el-col>
+          <el-col :span="12">
+            <div style="backdrop-filter: blur(20px); width: 100%; height: 100%; border-radius: 10px">
+              <div style="margin-left: 50px; margin-right: 50px">
+                <template>
+                  <el-carousel :interval="3000" type="card" height="180px">
+                    <el-carousel-item v-for="item in 6" :key="item">
+                    </el-carousel-item>
+                  </el-carousel>
+                </template>
+              </div>
+            </div>
+
+          </el-col>
+
+          <el-col :span="6">
+            <div class="vertical-text">
+              <p ref="welcomeText" style="font-size: 42px; color: #8c939d">{{ displayedMessage }}</p>
+            </div>
+          </el-col>
+        </el-row>
+
       </div>
     </el-container>
   </div>
@@ -114,9 +115,9 @@ export default {
       displayedMessage: "",
       deadline: new Date("2024-12-25"),
       title1: "已注册用户",
-      title2: "已上传院校数量",
+      title2: "已上传专业数量",
       title3: "网页访问量",
-      value1: 4154.564,
+      value1: 4154,
       value2: 1314,
       value3: 1314,
     };
@@ -141,21 +142,22 @@ export default {
 
 <style scoped>
 .background-image-container {
-  background-image: url('@/assets/background/desktop.png');
+  background-image: url('@/assets/background/island.png');
   background-size: cover; /* 将背景图片铺满整个容器 */
   background-position: center; /* 图片居中显示 */
   height: 84vh; /* 调整容器的高度，根据需要更改 */
-  background-size: 75%; /* 缩小背景图片 */
+  background-size: 100%; /* 缩小背景图片 */
   display: flex;
   justify-content: center;
   align-items: center;
   color: white; /* 文字颜色 */
 }
 
-/* 针对内容的额外样式 */
 .background-image-container > div {
-  text-align: center;
+  width: 100%; /* 宽度100% */
+  height: 100%; /* 高度100% */
 }
+
 
 .background-image-container h1 {
   font-size: 2em;

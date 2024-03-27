@@ -1,14 +1,16 @@
 <template>
-  <div class="background-image-container">
-    <div>
+  <div>
+    <div class="background-image-container">
       <div>
         <div>
-          <img src="../../assets/analyze.png" alt="First Image" class="image1" style="width: 200px; height: 200px; position: absolute; top: 500px; left: 350px;" @click="$router.push('search')">
-          <p style="position: absolute; top: 650px; left: 400px; font-size: 26px">分析局</p>
-        </div>
-        <div>
-          <img src="@/assets/personal.png" alt="Second Image" class="image2" style="width: 200px; height: 200px; position: absolute; bottom: 200px; right: 240px" @click="$router.push('personal')">
-          <p style="position: absolute; bottom: 140px; right: 280px; font-size: 26px">个人中心</p>
+          <div>
+            <img src="../../assets/analyze.png" alt="First Image" class="image1" style="width: 200px; height: 200px; position: absolute; top: 500px; left: 350px;" @click="$router.push('search')">
+            <p style="position: absolute; top: 650px; left: 400px; font-size: 26px">分析局</p>
+          </div>
+          <div>
+            <img src="@/assets/personal.png" alt="Second Image" class="image2" style="width: 200px; height: 200px; position: absolute; bottom: 200px; right: 240px" @click="$router.push('personal')">
+            <p style="position: absolute; bottom: 140px; right: 280px; font-size: 26px">个人中心</p>
+          </div>
         </div>
       </div>
     </div>
