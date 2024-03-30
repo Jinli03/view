@@ -32,7 +32,6 @@ import gsap from 'gsap';
 import lottie from "vue-lottie";
 import * as animationData from '../../assets/load.json';
 import * as echarts from 'echarts';
-import $ from 'jquery';
 import Sub from "@/components/Sub.vue";
 import School from "@/components/School.vue";
 import Echarts from "@/components/Echarts.vue";

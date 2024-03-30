@@ -76,7 +76,7 @@ export default {
     return {
       radio: null,
       pageNum: 1,
-      pageSize: 7,
+      pageSize: 100,
       square: '',
       city: '',
       total: 0,

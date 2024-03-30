@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       pageNum: 1,
-      pageSize: 7,
+      pageSize: 100,
       sub:'',
       schools: [],
       total: 0,

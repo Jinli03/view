@@ -41,7 +41,7 @@ const option1 = {
   },
   series: {
     type: 'sunburst',
-    radius: [0, '95%'],
+    radius: [0, '110%'],
     data: [],
     sort: undefined,
     emphasis: {
@@ -104,73 +104,113 @@ export default {
               },
               children: [
                 {
-                  name: 'Blackberry',
+                  name: '北京大学',
                   value: 1,
                   itemStyle: {
-                    color: '#3e0317'
+                    color: '#dd4c51'
                   }
                 },
                 {
-                  name: 'Raspberry',
+                  name: '清华大学',
                   value: 1,
                   itemStyle: {
-                    color: '#e62969'
+                    color: '#dd4c51'
                   }
                 },
                 {
-                  name: 'Blueberry',
+                  name: '北京航天航空大学',
                   value: 1,
                   itemStyle: {
-                    color: '#6569b0'
+                    color: '#dd4c51'
                   }
                 },
                 {
-                  name: 'Strawberry',
+                  name: '中国人民大学',
                   value: 1,
                   itemStyle: {
-                    color: '#ef2d36'
+                    color: '#dd4c51'
                   }
-                }
+                },
+
+                {
+                  name: '北京师范大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#dd4c51'
+                  }
+                },
+
+                {
+                  name: '中国农业大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#dd4c51'
+                  }
+                },
+
+                {
+                  name: '中央民族大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#dd4c51'
+                  }
+                },
               ]
             },
             {
               name: '天津',
               itemStyle: {
-                color: '#c94a44'
+                color: '#c944b3'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '天津大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#c944b3'
                   }
-                }
+                },
+
+                {
+                  name: '南开大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#c944b3'
+                  }
+                },
                ]
             },
             {
               name: '辽宁',
               itemStyle: {
-                color: '#c94a44'
+                color: '#b744c9'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '大连理工大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#b744c9'
                   }
-                }
+                },
+
+                {
+                  name: '东北大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#b744c9'
+                  }
+                },
               ]
             },
             {
               name: '吉林',
               itemStyle: {
-                color: '#c94a44'
+                color: '#8944c9'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '吉林大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#8944c9'
                   }
                 }
               ]
@@ -178,13 +218,13 @@ export default {
             {
               name: '黑龙江',
               itemStyle: {
-                color: '#c94a44'
+                color: '#445ac9'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '哈尔滨工业大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#445ac9'
                   }
                 }
               ]
@@ -192,41 +232,68 @@ export default {
             {
               name: '上海',
               itemStyle: {
-                color: '#c94a44'
+                color: '#4487c9'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '上海交通大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#4487c9'
                   }
-                }
+                },
+
+                {
+                  name: '复旦大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#4487c9'
+                  }
+                }, {
+                  name: '同济大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#4487c9'
+                  }
+                }, {
+                  name: '华东师范大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#4487c9'
+                  }
+                },
               ]
             },
             {
               name: '江苏',
               itemStyle: {
-                color: '#c94a44'
+                color: '#44b5c9'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '南京大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#44b5c9'
                   }
-                }
+                },
+                {
+                  name: '东南大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#44b5c9'
+                  }
+                },
               ]
             },
             {
               name: '浙江',
               itemStyle: {
-                color: '#c94a44'
+                color: '#44c9b5'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '浙江大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#44c9b5'
                   }
                 }
               ]
@@ -234,13 +301,13 @@ export default {
             {
               name: '安徽',
               itemStyle: {
-                color: '#c94a44'
+                color: '#44c9b9'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '中国科学技术大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#44c9b9'
                   }
                 }
               ]
@@ -248,13 +315,13 @@ export default {
             {
               name: '福建',
               itemStyle: {
-                color: '#c94a44'
+                color: '#44c98d'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '厦门大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#44c98d'
                   }
                 }
               ]
@@ -262,13 +329,13 @@ export default {
             {
               name: '江西',
               itemStyle: {
-                color: '#c94a44'
+                color: '#44c97e'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '南昌大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#44c97e'
                   }
                 }
               ]
@@ -276,27 +343,33 @@ export default {
             {
               name: '山东',
               itemStyle: {
-                color: '#c94a44'
+                color: '#44c946'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '山东大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#44c946'
                   }
-                }
+                },    {
+                  name: '中国海洋大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#44c946'
+                  }
+                },
               ]
             },
             {
               name: '河南',
               itemStyle: {
-                color: '#c94a44'
+                color: '#89c944'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '郑州大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#89c944'
                   }
                 }
               ]
@@ -304,55 +377,81 @@ export default {
             {
               name: '湖北',
               itemStyle: {
-                color: '#c94a44'
+                color: '#b7c944'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '华中科技大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#b7c944'
                   }
-                }
+                }, {
+                  name: '武汉大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#b7c944'
+                  }
+                },
               ]
             },
             {
               name: '湖南',
               itemStyle: {
-                color: '#c94a44'
+                color: '#c9a344'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '湖南大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#c9a344'
                   }
-                }
+                },
+                {
+                  name: '中南大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#c9a344'
+                  }
+                },
+                {
+                  name: '国防科技大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#c9a344'
+                  }
+                },
               ]
             },
             {
               name: '广东',
               itemStyle: {
-                color: '#c94a44'
+                color: '#c99444'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '中山大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#c99444'
                   }
-                }
+                },{
+                  name: '华南理工大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#c99444'
+                  }
+                },
               ]
             },
             {
               name: '重庆',
               itemStyle: {
-                color: '#c94a44'
+                color: '#c97744'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '重庆大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#c97744'
                   }
                 }
               ]
@@ -360,129 +459,75 @@ export default {
             {
               name: '四川',
               itemStyle: {
-                color: '#c94a44'
+                color: '#c94444'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '四川大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: '#c94444'
                   }
-                }
+                },{
+                  name: '电子科技大学',
+                  value: 1,
+                  itemStyle: {
+                    color: '#c94444'
+                  }
+                },
               ]
             },
             {
               name: '陕西',
               itemStyle: {
-                color: '#c94a44'
+                color: 'rgba(68,201,121,0.9)'
               },children: [
                 {
-                  name: 'Coconut',
+                  name: '西安交通大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: 'rgba(68,201,121,0.9)'
                   }
-                }
+                }, {
+                  name: '西北工业大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgba(68,201,121,0.9)'
+                  }
+                },
               ]
             },
             {
               name: '河北',
               itemStyle: {
-                color: '#dd4c51'
+                color: 'rgba(76,127,221,0.91)'
               },
               children: [
                 {
-                  name: 'Coconut',
+                  name: '河北工业大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f2684b'
+                    color: 'rgba(76,127,221,0.91)'
                   }
                 },
-                {
-                  name: 'Cherry',
-                  value: 1,
-                  itemStyle: {
-                    color: '#e73451'
-                  }
-                },
-                {
-                  name: 'Pomegranate',
-                  value: 1,
-                  itemStyle: {
-                    color: '#e65656'
-                  }
-                },
-                {
-                  name: 'Pineapple',
-                  value: 1,
-                  itemStyle: {
-                    color: '#f89a1c'
-                  }
-                },
-                {
-                  name: 'Grape',
-                  value: 1,
-                  itemStyle: {
-                    color: '#aeb92c'
-                  }
-                },
-                {
-                  name: 'Apple',
-                  value: 1,
-                  itemStyle: {
-                    color: '#4eb849'
-                  }
-                },
-                {
-                  name: 'Peach',
-                  value: 1,
-                  itemStyle: {
-                    color: '#f68a5c'
-                  }
-                },
-                {
-                  name: 'Pear',
-                  value: 1,
-                  itemStyle: {
-                    color: '#baa635'
-                  }
-                }
+
+
               ]
             },
             {
               name: '山西',
               itemStyle: {
-                color: '#f7a128'
+                color: 'rgba(247,206,40,0.85)'
               },
               children: [
                 {
-                  name: 'Grapefruit',
+                  name: '太原理工大学',
                   value: 1,
                   itemStyle: {
-                    color: '#f26355'
+                    color: 'rgba(247,206,40,0.85)'
                   }
                 },
-                {
-                  name: 'Orange',
-                  value: 1,
-                  itemStyle: {
-                    color: '#e2631e'
-                  }
-                },
-                {
-                  name: 'Lemon',
-                  value: 1,
-                  itemStyle: {
-                    color: '#fde404'
-                  }
-                },
-                {
-                  name: 'Lime',
-                  value: 1,
-                  itemStyle: {
-                    color: '#7eb138'
-                  }
-                }
+
+
               ]
             },
           ]
@@ -494,133 +539,179 @@ export default {
           },
           children: [
             {
-              name: 'Papery/Musty',
+              name: '内蒙古',
               itemStyle: {
-                color: '#9db2b7'
+                color: 'rgba(157,183,171,0.96)'
               },
               children: [
                 {
-                  name: 'Stale',
+                  name: '内蒙古大学',
                   value: 1,
                   itemStyle: {
-                    color: '#8b8c90'
+                    color: 'rgba(157,183,171,0.96)'
                   }
                 },
-                {
-                  name: 'Cardboard',
-                  value: 1,
-                  itemStyle: {
-                    color: '#beb276'
-                  }
-                },
-                {
-                  name: 'Papery',
-                  value: 1,
-                  itemStyle: {
-                    color: '#fefef4'
-                  }
-                },
-                {
-                  name: 'Woody',
-                  value: 1,
-                  itemStyle: {
-                    color: '#744e03'
-                  }
-                },
-                {
-                  name: 'Moldy/Damp',
-                  value: 1,
-                  itemStyle: {
-                    color: '#a3a36f'
-                  }
-                },
-                {
-                  name: 'Musty/Dusty',
-                  value: 1,
-                  itemStyle: {
-                    color: '#c9b583'
-                  }
-                },
-                {
-                  name: 'Musty/Earthy',
-                  value: 1,
-                  itemStyle: {
-                    color: '#978847'
-                  }
-                },
-                {
-                  name: 'Animalic',
-                  value: 1,
-                  itemStyle: {
-                    color: '#9d977f'
-                  }
-                },
-                {
-                  name: 'Meaty Brothy',
-                  value: 1,
-                  itemStyle: {
-                    color: '#cc7b6a'
-                  }
-                },
-                {
-                  name: 'Phenolic',
-                  value: 1,
-                  itemStyle: {
-                    color: '#db646a'
-                  }
-                }
+
               ]
             },
             {
-              name: 'Chemical',
+              name: '新疆',
               itemStyle: {
-                color: '#76c0cb'
+                color: 'rgb(118,203,158)'
               },
               children: [
                 {
-                  name: 'Bitter',
+                  name: '新疆大学',
                   value: 1,
                   itemStyle: {
-                    color: '#80a89d'
+                    color: 'rgb(118,203,158)'
                   }
                 },
                 {
-                  name: 'Salty',
+                  name: '石河子大学',
                   value: 1,
                   itemStyle: {
-                    color: '#def2fd'
+                    color: 'rgb(118,203,158)'
                   }
                 },
-                {
-                  name: 'Medicinal',
-                  value: 1,
-                  itemStyle: {
-                    color: '#7a9bae'
-                  }
-                },
-                {
-                  name: 'Petroleum',
-                  value: 1,
-                  itemStyle: {
-                    color: '#039fb8'
-                  }
-                },
-                {
-                  name: 'Skunky',
-                  value: 1,
-                  itemStyle: {
-                    color: '#5e777b'
-                  }
-                },
-                {
-                  name: 'Rubber',
-                  value: 1,
-                  itemStyle: {
-                    color: '#120c0c'
-                  }
-                }
               ]
-            }
+            },
+
+            {
+              name: '西藏',
+              itemStyle: {
+                color: 'rgb(173,183,157)'
+              },
+              children: [
+                {
+                  name: '西藏大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgb(173,183,157)'
+                  }
+                },
+
+              ]
+            },
+
+            {
+              name: '广西',
+              itemStyle: {
+                color: 'rgba(157,168,183,0.98)'
+              },
+              children: [
+                {
+                  name: '广西大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgba(157,168,183,0.98)'
+                  }
+                },
+
+              ]
+            },
+
+            {
+              name: '海南',
+              itemStyle: {
+                color: 'rgba(157,183,179,0.99)'
+              },
+              children: [
+                {
+                  name: '海南大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgb(177,183,157)'
+                  }
+                },
+
+              ]
+            },
+
+            {
+              name: '青海',
+              itemStyle: {
+                color: 'rgb(183,171,157)'
+              },
+              children: [
+                {
+                  name: '青海大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgb(167,157,183)'
+                  }
+                },
+
+              ]
+            },
+
+            {
+              name: '云南',
+              itemStyle: {
+                color: 'rgb(183,157,170)'
+              },
+              children: [
+                {
+                  name: '云南大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgb(183,157,170)'
+                  }
+                },
+
+              ]
+            },
+
+            {
+              name: '贵州',
+              itemStyle: {
+                color: 'rgb(183,157,157)'
+              },
+              children: [
+                {
+                  name: '贵州大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgb(183,157,157)'
+                  }
+                },
+
+              ]
+            },
+
+            {
+              name: '甘肃',
+              itemStyle: {
+                color: 'rgba(174,183,157,0.85)'
+              },
+              children: [
+                {
+                  name: '兰州大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgba(157,157,183,0.85)'
+                  }
+                },
+
+              ]
+            },
+
+            {
+              name: '宁夏',
+              itemStyle: {
+                color: 'rgb(183,157,171)'
+              },
+              children: [
+                {
+                  name: '宁夏大学',
+                  value: 1,
+                  itemStyle: {
+                    color: 'rgba(167,157,183,0.81)'
+                  }
+                },
+
+              ]
+            },
           ]
         }
       ]
