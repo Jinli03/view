@@ -18,6 +18,7 @@
               <div>内蒙古、广西、海南、贵州、云南、西藏、甘肃、青海、宁夏、新疆10个省 (区)</div>
             </el-collapse-item>
           </el-collapse>
+          <el-button @click="$router.push('Sear')" size="mini">查看详情</el-button>
         </el-card>
       </el-col>
     </el-row>

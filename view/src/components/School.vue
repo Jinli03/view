@@ -5,45 +5,58 @@
 -->
 <template>
   <div>
-    <div>
-      <el-row :gutter="20">
-        <el-col :span="4">
-          <div style="display: flex">
-
-          </div>
-          <el-button>地区</el-button>
-          <div style="display: flex; flex-wrap: wrap; margin-top: 20px; height: auto;">
-            <div style="margin-right: 10px; margin-bottom: 10px;" @click="square='A';">
-              <el-radio v-model="radio" label="1">A</el-radio>
+    <el-card>
+      <div>
+        <el-row :gutter="20">
+          <el-col :span="4">
+            <div style="display: flex">
+              <el-button style="margin-right: 10px">地区</el-button>
+              <div style="display: flex; flex-wrap: wrap; margin-top: 20px; height: auto;">
+                <div style="margin-right: 10px; margin-bottom: 10px;" @click="square='A';">
+                  <el-radio v-model="radio" label="1">A</el-radio>
+                </div>
+                <div style="margin-right: 10px; margin-bottom: 10px;" @click="square='B';">
+                  <el-radio v-model="radio" label="2">B</el-radio>
+                </div>
+              </div>
             </div>
-            <div style="margin-right: 10px; margin-bottom: 10px;" @click="square='B';">
-              <el-radio v-model="radio" label="2">B</el-radio>
-            </div>
-            <div style="margin-right: 10px; margin-bottom: 10px;" @click="square='C';">
-              <el-radio v-model="radio" label="3">C</el-radio>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div style="display: flex">
-            <el-button style="margin-right: 15px">城市</el-button>
-            <el-select v-model="value1" multiple placeholder="请选择">
-              <el-option
-                  v-for="item in options1"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
-              </el-option>
-            </el-select>
-          </div>
-        </el-col>
-        <el-col :span="1">
-          <el-button @click="load(1)">查询</el-button>
-        </el-col>
-      </el-row>
 
+          </el-col>
+          <el-col :span="6">
+            <div style="display: flex">
+              <el-button style="margin-right: 15px">城市</el-button>
+              <el-select v-model="value1" multiple placeholder="请选择">
+                <el-option
+                    v-for="item in options1"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                </el-option>
+              </el-select>
+            </div>
+          </el-col>
+          <el-col :span="1">
+            <el-button @click="load(1)">查询</el-button>
+          </el-col>
+          <el-col :span="8">
+            .
+          </el-col>
+          <el-col :span="5">
+            <div style="margin: 10px 0">
+              <el-pagination
+                  @current-change="handleCurrentChange"
+                  :current-page="pageNum"
+                  :page-sizes="[100, 200, 300, 400]"
+                  :page-size="pageSize"
+                  layout="total,prev, pager, next"
+                  :total="total">
+              </el-pagination>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </el-card>
 
-    </div>
 
     <div>
       <el-row :gutter="20" style="padding: 8px">
@@ -76,7 +89,7 @@ export default {
     return {
       radio: null,
       pageNum: 1,
-      pageSize: 100,
+      pageSize: 8,
       square: '',
       city: '',
       total: 0,
@@ -137,6 +150,10 @@ export default {
           this.total = 0;
         }
       });
+    },
+    handleCurrentChange(pageNum) {
+      this.pageNum = pageNum
+      this.load()
     },
   },
 }

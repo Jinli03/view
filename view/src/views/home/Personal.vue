@@ -23,7 +23,6 @@
                     </el-statistic>
                   </div>
                 </el-card>
-
               </el-row>
               <el-row>
                 <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
@@ -80,21 +79,44 @@
           </el-col>
           <el-col :span="12">
             <div style="backdrop-filter: blur(20px); width: 100%; height: 100%; border-radius: 10px">
-              <div style="margin-left: 50px; margin-right: 50px">
-                <template>
-                  <el-carousel :interval="3000" type="card" height="180px">
-                    <el-carousel-item v-for="item in 6" :key="item">
-                    </el-carousel-item>
-                  </el-carousel>
-                </template>
+<!--              <div style="margin-left: 50px; margin-right: 50px">-->
+<!--                <template>-->
+<!--                  <el-carousel :interval="3000" type="card" height="140px">-->
+<!--                    <el-carousel-item v-for="item in 6" :key="item">-->
+<!--                    </el-carousel-item>-->
+<!--                  </el-carousel>-->
+<!--                </template>-->
+<!--              </div>-->
+              <div style="margin-left: 30px; margin-right: 30px; margin-bottom: 50px">
+                <a-card title="留言" style="width: 100%; height: 380px; border-radius: 20px;">
+                  <div>
+                    <a-comment v-for="(comment, index) in item" :key="index">
+                      <template #author>
+                        <a>{{ comment.author }}</a>
+                      </template>
+                      <template #avatar>
+                        <a-avatar src="https://th.bing.com/th/id/OIP.DClLHtxlG_GKXHei8YzPVAHaE6?w=234&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"  />
+                      </template>
+                      <template #content>
+                        <p>{{ comment.comment }}</p>
+                      </template>
+                      <a-divider />
+                    </a-comment>
+                  </div>
+
+                </a-card>
               </div>
             </div>
 
           </el-col>
 
           <el-col :span="6">
-            <div class="vertical-text">
-              <p ref="welcomeText" style="font-size: 42px; color: #8c939d">{{ displayedMessage }}</p>
+            <div style="backdrop-filter: blur(20px); width: 100%; height: 100%; border-radius: 10px">
+              <a-card title="每日箴言" style="border-radius: 20px">
+                <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
+                  你永远是最棒的
+                </p>
+              </a-card>
             </div>
           </el-col>
         </el-row>
@@ -120,10 +142,20 @@ export default {
       value1: 4154,
       value2: 1314,
       value3: 1314,
+      item: []
     };
   },
   mounted() {
     this.displayWelcomeMessage();
+    this.$request.get('/forum/select', {
+    }).then(res => {
+      if (res.data) {
+        // 确保在访问其属性之前，res.data不为null
+        this.item = res.data;
+        console.log('Response data:', res.data);
+      } else {
+      }
+    });
   },
   methods: {
     displayWelcomeMessage() {

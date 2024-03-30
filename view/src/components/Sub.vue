@@ -23,6 +23,21 @@
         <el-col :span="1">
           <el-button @click="load1(1)">查询</el-button>
         </el-col>
+        <el-col :span="8">
+          .
+        </el-col>
+        <el-col :span="5">
+          <div style="margin: 10px 0">
+            <el-pagination
+                @current-change="handleCurrentChange"
+                :current-page="pageNum"
+                :page-sizes="[100, 200, 300, 400]"
+                :page-size="pageSize"
+                layout="total,prev, pager, next"
+                :total="total">
+            </el-pagination>
+          </div>
+        </el-col>
       </el-row>
     </div>
 
@@ -56,7 +71,7 @@ export default {
   data() {
     return {
       pageNum: 1,
-      pageSize: 100,
+      pageSize: 8,
       sub:'',
       schools: [],
       total: 0,
@@ -92,6 +107,10 @@ export default {
   },
   mounted: {},
   methods: {
+    handleCurrentChange(pageNum) {
+      this.pageNum = pageNum
+      this.load1()
+    },
     load1(pageNum) {
       if (pageNum) {
         this.pageNum = pageNum

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-container class="background-image"></el-container>
+    <div class="emptybox">  </div>
     <div style="margin: 10px">
       <p>开始考研择校之旅吧！</p>
     </div>
@@ -9,21 +9,21 @@
         <Echarts/>
       </div>
     </el-container>
-    <el-container class="background-image-container">
-      <div style="backdrop-filter: blur(8px); width: 95%; height: 95%; border-radius: 2%;">
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="院校库" name="first" @click="load(1)">
-            <School/>
-          </el-tab-pane>
-          <el-tab-pane label="专业库" name="second" @click="load1(1)">
-            <Sub/>
-          </el-tab-pane>
-          <el-tab-pane label="智能推荐" name="third">
+      <el-container class="background-image-container">
+        <div style="backdrop-filter: blur(8px); width: 95%; height: 95%; border-radius: 2%;">
+          <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="院校库" name="first" @click="load(1)">
+              <School/>
+            </el-tab-pane>
+            <el-tab-pane label="专业库" name="second" @click="load1(1)">
+              <Sub/>
+            </el-tab-pane>
+            <el-tab-pane label="智能推荐" name="third">
 
-          </el-tab-pane>
-        </el-tabs>
-      </div>
-    </el-container>
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+      </el-container>
   </div>
 </template>
 
@@ -67,7 +67,7 @@ export default {
     this.load()
   },
   mounted() {
-    var myChart = echarts.init(document.getElementById('beijing'));
+
   },
   methods: {
     handleClick(tab, event) {
@@ -97,17 +97,7 @@ export default {
 
 
 <style>
-.background-image {
-  background-image: url('@/assets/background/star.png');
-  background-size: cover; /* 将背景图片铺满整个容器 */
-  background-position: center; /* 图片居中显示 */
-  height: 88vh; /* 调整容器的高度，根据需要更改 */
-  background-size: 100%; /* 缩小背景图片 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white; /* 文字颜色 */
-}
+
 .background-image-container {
   background-image: url('@/assets/background/up.png');
   background-size: cover; /* 将背景图片铺满整个容器 */
