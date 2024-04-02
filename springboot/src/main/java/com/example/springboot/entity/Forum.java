@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Forum {
     @TableId(type= IdType.AUTO)
-    private int id;
+    private Integer id;
     private String author;
     private String tag;
     private String comment;

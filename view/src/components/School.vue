@@ -5,7 +5,7 @@
 -->
 <template>
   <div>
-    <el-card>
+    <el-card style="margin-right: 20px; margin-left: 20px">
       <div>
         <el-row :gutter="20">
           <el-col :span="4">

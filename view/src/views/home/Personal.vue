@@ -2,8 +2,8 @@
   <div>
     <el-container class="background-image-container">
       <div style=" width: 95%; height: 95%">
-        <el-row :gutter="20">
-          <el-col :span="6" style="backdrop-filter: blur(20px); border-radius: 10px">
+        <el-row :gutter="50">
+          <el-col :span="6" style="backdrop-filter: blur(20px); border-radius: 10px; padding: 10px">
             <div>
               <el-row style="display:flex; justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
                 <img :src="user.title || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style=" width: 50px; height: 50px; border-radius: 50%; margin: 10px">
@@ -77,8 +77,7 @@
               </el-row>
             </div>
           </el-col>
-          <el-col :span="12">
-            <div style="backdrop-filter: blur(20px); width: 100%; height: 100%; border-radius: 10px">
+          <el-col :span="12" style="backdrop-filter: blur(20px); border-radius: 10px; padding: 10px">
 <!--              <div style="margin-left: 50px; margin-right: 50px">-->
 <!--                <template>-->
 <!--                  <el-carousel :interval="3000" type="card" height="140px">-->
@@ -87,7 +86,7 @@
 <!--                  </el-carousel>-->
 <!--                </template>-->
 <!--              </div>-->
-              <div style="margin-left: 30px; margin-right: 30px; margin-bottom: 50px">
+              <div style="margin: 30px">
                 <a-card title="留言" style="width: 100%; height: 380px; border-radius: 20px;">
                   <div>
                     <a-comment v-for="(comment, index) in item" :key="index">
@@ -103,20 +102,59 @@
                       <a-divider />
                     </a-comment>
                   </div>
-
                 </a-card>
               </div>
-            </div>
-
           </el-col>
 
-          <el-col :span="6">
-            <div style="backdrop-filter: blur(20px); width: 100%; height: 100%; border-radius: 10px">
-              <a-card title="每日箴言" style="border-radius: 20px">
-                <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
-                  你永远是最棒的
-                </p>
-              </a-card>
+          <el-col :span="6" style="backdrop-filter: blur(20px); border-radius: 10px; padding: 10px">
+            <div>
+              <el-row style="margin-bottom: 10px">
+                <template>
+                  <a-card title="每日箴言" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/blue.webp') + ')' }">
+                    <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
+                      你永远是最棒的
+                    </p>
+                  </a-card>
+                </template>
+              </el-row>
+              <el-row style="margin-bottom: 10px">
+                <template>
+                  <div style="background-color: #ececec; padding: 20px; background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/rainbow.png') + ')' }">
+                    <a-row>
+                      <p>心愿单</p>
+                    </a-row>
+                    <a-row :gutter="16" >
+                      <a-col :span="8">
+                        <a-card title="心愿1" :bordered="false" style="background-size: cover; border-radius: 20px">
+                          <p>card content</p>
+                        </a-card>
+                      </a-col>
+                      <a-col :span="8">
+                        <a-card title="心愿2" :bordered="false" style="background-size: cover; border-radius: 20px">
+                          <p>card content</p>
+                        </a-card>
+                      </a-col>
+                      <a-col :span="8">
+                        <a-card title="心愿3" :bordered="false" style="background-size: cover; border-radius: 20px">
+                          <p>card content</p>
+                        </a-card>
+                      </a-col>
+                    </a-row>
+                  </div>
+                </template>
+              </el-row>
+              <el-row>
+                <template>
+                  <template>
+                    <a-card title="单词" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/deepblue.png') + ')' }">
+                      <a-icon type="redo" @click="handleRandom" />
+                      <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
+                      {{ words.word }}  {{ words.chinese }}
+                      </p>
+                    </a-card>
+                  </template>
+                </template>
+              </el-row>
             </div>
           </el-col>
         </el-row>
@@ -142,7 +180,8 @@ export default {
       value1: 4154,
       value2: 1314,
       value3: 1314,
-      item: []
+      item: [],
+      words: []
     };
   },
   mounted() {
@@ -158,6 +197,17 @@ export default {
     });
   },
   methods: {
+    handleRandom() {
+      this.$request.get('/words/select', {
+      }).then(res => {
+        if (res.data) {
+          // 确保在访问其属性之前，res.data不为null
+          this.words = res.data;
+          console.log('words:', this.words);
+        } else {
+        }
+      });
+    },
     displayWelcomeMessage() {
       let index = 0;
       const intervalId = setInterval(() => {
@@ -174,7 +224,7 @@ export default {
 
 <style scoped>
 .background-image-container {
-  background-image: url('@/assets/background/island.png');
+  background-image: url('@/assets/background/person.png');
   background-size: cover; /* 将背景图片铺满整个容器 */
   background-position: center; /* 图片居中显示 */
   height: 84vh; /* 调整容器的高度，根据需要更改 */

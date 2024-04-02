@@ -2,11 +2,9 @@
   <div style="margin-left: 10px">
     <el-row :gutter="20" style="display: flex">
       <el-col :span="12">
-        <el-card style="width: 95%; height: 95%">
-          <div style="display: flex; justify-content: center;">
-            <div id="echart" style="width: 580px; height:580px; margin-right: auto; "></div>
-          </div>
-        </el-card>
+        <div style="display: flex; justify-content: center;">
+          <div id="echart" style="width: 580px; height:580px; margin-right: auto; "></div>
+        </div>
       </el-col>
       <el-col :span="12">
         <el-card>
@@ -30,7 +28,6 @@ import * as echarts from 'echarts';
 const option1 = {
   title: {
     text: '学校概览',
-    subtext: 'Source: https://worldcoffeeresearch.org/work/sensory-lexicon/',
     textStyle: {
       fontSize: 14,
       align: 'right'
@@ -730,7 +727,6 @@ export default {
     let option1 = {
       title: {
         text: '学校概览',
-        subtext: 'Source: https://worldcoffeeresearch.org/work/sensory-lexicon/',
         textStyle: {
           fontSize: 14,
           align: 'right'
