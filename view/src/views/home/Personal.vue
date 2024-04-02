@@ -72,12 +72,27 @@
               </el-row>
               <el-row>
                 <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; margin-bottom: 10px; border-radius: 20px">
+                  <template>
+                    <a-popover title="Todo-List">
+                      <template slot="content">
+                        <p><a-checkbox @change="onChange">高数第一讲</a-checkbox></p>
+                        <p><a-checkbox @change="onChange">英语单词</a-checkbox></p>
+                        <p><a-checkbox @change="onChange">跑步</a-checkbox></p>
+                        <p><a-checkbox @change="onChange">专业课习题</a-checkbox></p>
+                      </template>
+                      <a-button  style="width: 235px; background-color: white; color: black;border-color: white;display: inline-block">
 
+                        <p><i class="el-icon-edit-outline"></i>    备忘录</p>
+                      </a-button>
+                    </a-popover>
+                  </template>
                 </el-card>
+
+
               </el-row>
             </div>
           </el-col>
-          <el-col :span="12" style="backdrop-filter: blur(20px); border-radius: 10px; padding: 10px">
+          <el-col :span="12" style="">
 <!--              <div style="margin-left: 50px; margin-right: 50px">-->
 <!--                <template>-->
 <!--                  <el-carousel :interval="3000" type="card" height="140px">-->
@@ -86,7 +101,7 @@
 <!--                  </el-carousel>-->
 <!--                </template>-->
 <!--              </div>-->
-              <div style="margin: 30px">
+              <div style="backdrop-filter: blur(20px); border-radius: 30px; padding: 30px ">
                 <a-card title="留言" style="width: 100%; height: 380px; border-radius: 20px;">
                   <div>
                     <a-comment v-for="(comment, index) in item" :key="index">
@@ -102,9 +117,28 @@
                       <a-divider />
                     </a-comment>
                   </div>
+
+
                 </a-card>
               </div>
+
+           <div>
+             <template>
+               <div style="display: flex; justify-content: space-between; margin-bottom: 10px;margin-top: 85px">
+                 <a-progress type="circle" :percent="75" :format="percent => ` 数学`" />
+                 <a-progress type="circle" :percent="100" :format="() => '英语'" />
+                 <a-progress type="circle" :percent="25" status="exception" :format="() => '专业课'">
+                   <template #format="percent">
+                     <span style="color: red">{{ percent }}</span>
+                   </template>
+                 </a-progress>
+               </div>
+             </template>
+           </div>
           </el-col>
+
+
+
 
           <el-col :span="6" style="backdrop-filter: blur(20px); border-radius: 10px; padding: 10px">
             <div>
@@ -218,7 +252,12 @@ export default {
         }
       }, 100); // 逐字显示的时间间隔，单位为毫秒
     }
+
+
   }
+
+
+
 };
 </script>
 
@@ -309,4 +348,13 @@ export default {
   background-repeat: no-repeat; /* 不重复平铺背景图 */
   background-position: center; /* 图片居中显示 */
 }
+
+
+
+ div.ant-progress-circle,
+ div.ant-progress-line {
+   margin-right: 8px;
+   margin-bottom: 8px;
+ }
+
 </style>
