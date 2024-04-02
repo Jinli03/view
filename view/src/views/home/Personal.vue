@@ -155,21 +155,23 @@
                 <template>
                   <div style="background-color: #ececec; padding: 20px; background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/rainbow.png') + ')' }">
                     <a-row>
-                      <p>心愿单</p>
+                      <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
+                        心愿单
+                      </p>
                     </a-row>
                     <a-row :gutter="16" >
                       <a-col :span="8">
-                        <a-card title="心愿1" :bordered="false" style="background-size: cover; border-radius: 20px">
+                        <a-card title="心愿1" :bordered="false" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/green.png') + ')' }">
                           <p>card content</p>
                         </a-card>
                       </a-col>
                       <a-col :span="8">
-                        <a-card title="心愿2" :bordered="false" style="background-size: cover; border-radius: 20px">
+                        <a-card title="心愿2" :bordered="false" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/green.png') + ')' }">
                           <p>card content</p>
                         </a-card>
                       </a-col>
                       <a-col :span="8">
-                        <a-card title="心愿3" :bordered="false" style="background-size: cover; border-radius: 20px">
+                        <a-card title="心愿3" :bordered="false" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/green.png') + ')' }">
                           <p>card content</p>
                         </a-card>
                       </a-col>
@@ -178,16 +180,20 @@
                 </template>
               </el-row>
               <el-row>
-                <template>
                   <template>
-                    <a-card title="单词" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/deepblue.png') + ')' }">
-                      <a-icon type="redo" @click="handleRandom" />
-                      <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
-                      {{ words.word }}  {{ words.chinese }}
-                      </p>
+                    <a-card title="单词" style="background-size: cover; border-radius: 20px; height: 150px" :style="{ backgroundImage: 'url(' + require('@/assets/card/deepblue.png') + ')' }">
+                      <el-col :span="18">
+                        <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
+                          {{ words.word }}      {{ words.chinese }}
+                        </p>
+                      </el-col>
+                      <el-col :span="6">
+                          <a-button ghost @click="handleRandom">
+                            <a-icon type="redo" />
+                          </a-button>
+                      </el-col>
                     </a-card>
                   </template>
-                </template>
               </el-row>
             </div>
           </el-col>
