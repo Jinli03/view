@@ -4,97 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0e99890-a4ab-4927-a477-f1a3e19c61f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/WordsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Words.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/mapper/WordsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/service/WordsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/background/person.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/background/sentence.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/card/blue.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/card/deepblue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/card/green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/card/pink.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/card/rainbow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/card/red.jpg" afterDir="false" />
+    <list default="true" id="d8620f65-754f-4713-a671-6031b555ff07" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/view.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Forum.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Forum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/view/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/view/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/assets/background/island.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/assets/background/sky.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/assets/background/speed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/assets/background/star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/components/Echarts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/Echarts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/components/School.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/School.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/Personal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Personal.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Vue Composition API Component" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\锦里\.m2\repository" />
+        <option name="userSettingsFile" value="C:\Users\锦里\.m2\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="2eHEv7jqmZUmootew8BAqQdSL1w" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2eXvGiQ5rSUFoBCE1jOH9Omx5I6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/文档/GitHub/web&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d164d99c46d45be6b1e7585ff7ea10e7&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Software\\IDEA\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/ui",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\ui\view\src\assets\card" />
-      <recent name="D:\ui\view\src\assets\background" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
+}]]></component>
+  <component name="RunManager" selected="npm.serve">
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="springboot" />
@@ -121,16 +74,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f0e99890-a4ab-4927-a477-f1a3e19c61f7" name="Changes" comment="" />
-      <created>1711553332076</created>
+      <changelist id="d8620f65-754f-4713-a671-6031b555ff07" name="Changes" comment="" />
+      <created>1712063644882</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1711553332076</updated>
-      <workItem from="1711553333972" duration="2058000" />
-      <workItem from="1711600593379" duration="3775000" />
-      <workItem from="1711634198497" duration="634000" />
-      <workItem from="1711943901504" duration="1277000" />
-      <workItem from="1712037480413" duration="6200000" />
+      <updated>1712063644882</updated>
+      <workItem from="1712063645865" duration="173000" />
     </task>
     <servers />
   </component>
