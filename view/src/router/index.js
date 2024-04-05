@@ -34,6 +34,7 @@ const routes = [
       { path: 'search', name: 'Search', meta: { name: '查询'}, component: () => import('../views/home/Search.vue')},
       { path: 'info', name: 'Info', meta: { name: '详情'}, component: () => import('../views/home/Info.vue')},
       { path: 'schoolinfo', name: 'Schoolinfo', meta: { name: '学校详情'}, component: () => import('../views/home/Schoolinfo.vue')},
+      { path: 'personwishes', name: 'PersonWishes', meta: { name: '个人心愿'}, component: () => import('../views/home/PersonWishes.vue')},
       { path: 'personal', name: 'Personal', meta: { name: '个人'}, component: () => import('../views/home/Personal.vue')},
       { path: 'person', name: 'Person', meta: { name: '个人信息'}, component: () => import('../views/home/Person.vue')},
       { path: 'password', name: 'Password', meta: { name: '修改密码'}, component: () => import('../views/home/Password.vue')},

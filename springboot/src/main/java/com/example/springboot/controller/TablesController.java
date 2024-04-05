@@ -6,6 +6,7 @@
 package com.example.springboot.controller;
 
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -216,6 +217,8 @@ public class TablesController {
     }
 
 
+
+    //只返回某个学校的复试人数分数等信息
     @GetMapping("/distinctSchool/{school}")
     public Result distinctSchools(@PathVariable String school) {
         List<Tables> schoolInfo = tablesService.list(Wrappers.<Tables>lambdaQuery()
@@ -274,5 +277,19 @@ public class TablesController {
         result.put("rescoreGroups", rescoreGroups);
 
         return Result.success(result);
+    }
+
+    //获得某个学校的具体信息
+    @GetMapping("/distinctSchoolInfo/{school}")
+    public Result distinctSchoolInfo(@PathVariable String school) {
+        // 使用 LambdaQueryWrapper 构建查询条件
+        LambdaQueryWrapper<Tables> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Tables::getSchool, school);
+
+        // 调用 Service 层的方法查询符合条件的记录
+        List<Tables> tablesList = tablesService.list(queryWrapper);
+
+        // 构建 Result 对象并返回
+        return Result.success(tablesList);
     }
 }

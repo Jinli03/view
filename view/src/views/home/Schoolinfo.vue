@@ -5,24 +5,111 @@
 -->
 <template>
   <div>
-    <h1>
-      hello, {{ school }}
-    </h1>
-    <el-col :span="8">
+    <div>
+      <h1>
+        hello, {{ school }}
+      </h1>
+      <el-col :span="8">
+        <el-card>
+          <div id="person" style="width: 100%; height: 400px"></div>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card>
+          <div id="reperson" style="width: 100%; height: 400px"></div>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card>
+          <div id="rescore" style="width: 100%; height: 400px"></div>
+        </el-card>
+      </el-col>
+    </div>
+    <div>
       <el-card>
-        <div id="person" style="width: 100%; height: 400px"></div>
+        <el-table
+            :data="tablesdata"
+            style="width: 100%"
+            height="250">
+          <el-table-column
+              fixed
+              prop="school"
+              label="学校"
+              width="150"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="sub"
+              label="专业"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="subcode"
+              label="专业代码"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="city"
+              label="城市"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="square"
+              label="地区"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="person21"
+              label="21年招收人数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="person22"
+              label="22年招收人数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="person23"
+              label="23年招收人数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="rescore21"
+              label="21年复试分数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="rescore22"
+              label="22年复试分数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="rescore23"
+              label="23年复试分数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              label="收藏"
+              width="120"
+              align="center">
+            <<template v-slot="scope">
+            <el-button size="mini" type="primary" plain @click="handleWish(scope.row)">收藏</el-button>
+          </template>
+          </el-table-column>
+        </el-table>
       </el-card>
-    </el-col>
-    <el-col :span="8">
-      <el-card>
-        <div id="reperson" style="width: 100%; height: 400px"></div>
-      </el-card>
-    </el-col>
-    <el-col :span="8">
-      <el-card>
-        <div id="rescore" style="width: 100%; height: 400px"></div>
-      </el-card>
-    </el-col>
+
+    </div>
   </div>
 </template>
 
@@ -118,7 +205,9 @@ export default {
   data() {
     return {
       school: '',
-      tables: []
+      tables: [],
+      tablesdata: [],
+      user: JSON.parse(localStorage.getItem('pilot') || '{}'),
     }
   },
   created() {
@@ -130,6 +219,7 @@ export default {
       return
     }
     this.load()
+    this.load2()
   },
   methods: {
     load() {
@@ -236,8 +326,39 @@ export default {
       }).catch(error => {
         console.error('Error fetching data:', error);
       });
+    },
+    load2() {
+      let school = this.school
+      this.$request.get('/tables/distinctSchoolInfo/' + school ).then(res => {
+        this.tablesdata = res.data
+      }).catch(error => {
+        console.error('Error fetching data:', error);
+      });
+    },
+    handleWish(row) {
+      const data = {
+        name: this.user.name,
+        school: row.school,
+        sub: row.sub,
+        subcode: row.subcode,
+        city: row.city,
+        square: row.square,
+        person21: row.person21,
+        person22: row.person22,
+        person23: row.person23,
+        rescore21: row.rescore21,
+        rescore22: row.rescore22,
+        rescore23: row.rescore23,
+        max: row.max,
+        min: row.min,
+        pic: row.pic
+      };
+      this.$request.put('/wishes/save', data).then(res => {
+        console.log('保存成功');
+      }).catch(error => {
+        console.error('保存失败', error);
+      });
     }
-
   },
 }
 </script>

@@ -155,24 +155,36 @@
                 <template>
                   <div style="background-color: #ececec; padding: 20px; background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/rainbow.png') + ')' }">
                     <a-row>
-                      <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
-                        心愿单
-                      </p>
+                      <el-col :span="16">
+                        <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
+                          心愿单
+                        </p>
+                      </el-col>
+                      <el-col :span="8">
+                        <a-button ghost @click="$router.push('PersonWishes?name=' + user.name)">查看全部</a-button>
+                      </el-col>
                     </a-row>
                     <a-row :gutter="16" >
                       <a-col :span="8">
                         <a-card title="心愿1" :bordered="false" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/green.png') + ')' }">
-                          <p>card content</p>
+                          <p style="font-size: 14px;">{{ infs[0].school }}</p>
+                          <p style="font-size: 14px;">{{ infs[0].sub }}</p>
                         </a-card>
                       </a-col>
                       <a-col :span="8">
                         <a-card title="心愿2" :bordered="false" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/green.png') + ')' }">
-                          <p>card content</p>
+                          <p>content</p>
+                          <p>content</p>
+<!--                          <p style="font-size: 14px;">{{ infs[1].school }}</p>-->
+<!--                          <p style="font-size: 14px;">{{ infs[1].sub }}</p>-->
                         </a-card>
                       </a-col>
                       <a-col :span="8">
                         <a-card title="心愿3" :bordered="false" style="background-size: cover; border-radius: 20px" :style="{ backgroundImage: 'url(' + require('@/assets/card/green.png') + ')' }">
-                          <p>card content</p>
+                          <p>content</p>
+                          <p>content</p>
+<!--                          <p style="font-size: 14px;">{{ infs[2].school }}</p>-->
+<!--                          <p style="font-size: 14px;">{{ infs[2].sub }}</p>-->
                         </a-card>
                       </a-col>
                     </a-row>
@@ -221,7 +233,8 @@ export default {
       value2: 1314,
       value3: 1314,
       item: [],
-      words: []
+      words: [],
+      infs: []
     };
   },
   mounted() {
@@ -235,6 +248,8 @@ export default {
       } else {
       }
     });
+    this.handleRandom()
+    this.select()
   },
   methods: {
     handleRandom() {
@@ -257,9 +272,21 @@ export default {
           clearInterval(intervalId);
         }
       }, 100); // 逐字显示的时间间隔，单位为毫秒
-    }
-
-
+    },
+    select() {
+      this.$request.get('/wishes/selectThree', {
+        params: {
+          name: this.user.name
+        }
+      }).then(res => {
+        if (res.data) {
+          // 确保在访问其属性之前，res.data不为null
+          this.infs = res.data;
+          console.log('Response data:', res.data);
+        } else {
+        }
+      });
+    },
   }
 
 
