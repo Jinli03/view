@@ -28,10 +28,11 @@ export default {
 
 <style scoped>
 .background-image-container {
-  background-image: url('@/assets/homepage.png');
-  background-size: cover; /* 将背景图片铺满整个容器 */
+  background-image: url('@/assets/background/homepage.png');
+  background-size: contain; /* 使背景图片完全显示在容器内 */
   background-position: center; /* 图片居中显示 */
-  height: 84vh; /* 调整容器的高度，根据需要更改 */
+  height: 84vh; /* 使用视口高度作为容器高度 */
+  width: 84vw; /* 使用视口宽度作为容器宽度 */
   display: flex;
   justify-content: center;
   align-items: center;
