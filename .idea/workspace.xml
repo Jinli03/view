@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c07ac5c-2ff4-40b2-868e-9a1b89962a48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/files/1712634211577_微信图片_20231209165841.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/微信图片_20231209165411.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/微信图片_20231209165841.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/微信图片_20231209165811.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/src/assets/222.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/src/assets/333.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/src/assets/444.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/WordsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/WordsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/Personal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Personal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/HomePage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +67,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\文档\GitHub\web-\view\view\src\assets" />
       <recent name="D:\ui\files" />
     </key>
   </component>
@@ -106,7 +106,7 @@
       <workItem from="1712546238402" duration="3004000" />
       <workItem from="1712549750341" duration="267000" />
       <workItem from="1712583151005" duration="2808000" />
-      <workItem from="1712633816947" duration="13483000" />
+      <workItem from="1712633816947" duration="18935000" />
     </task>
     <servers />
   </component>
