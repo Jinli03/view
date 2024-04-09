@@ -27,8 +27,8 @@ public class WordsController {
         // 构建 QueryWrapper
         QueryWrapper<Words> queryWrapper = new QueryWrapper<>();
         // 使用原生 SQL 来实现随机排序
-        queryWrapper.last("ORDER BY RAND() LIMIT 1");
-        Words word = wordsService.getOne(queryWrapper);
-        return Result.success(word);
+        queryWrapper.last("ORDER BY RAND() LIMIT 6");
+        List<Words> words = wordsService.list(queryWrapper);
+        return Result.success(words);
     }
 }

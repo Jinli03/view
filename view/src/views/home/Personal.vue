@@ -221,39 +221,76 @@
               <el-row style="margin-bottom: 10px">
                 <template>
                   <a-card  style="background-size: cover; border-radius: 20px;background-color: rgba(255,255,255,0.71)" >
-                    <el-divider class="centered-divider" style="margin-top: -5px; background-color: rgba(255,255,255,0.11)">每日箴言</el-divider>
-                    <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">
+                    <p style="text-align: center;margin-bottom: -15px;margin-top: -10px">每日箴言</p>
+                    <el-divider class="centered-divider" style="margin-top: -5px; background-color: rgba(255,255,255,0.11)"></el-divider>
+                    <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500;font-family: 楷体">
                       "最可怕的敌人，就是没有坚强的信念。"</p>
 
-                    <p style=" text-indent: 15em;font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">           ——罗曼·罗兰</p>
+                    <p style=" font-family: 楷体; text-indent: 14em;font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">           ——罗曼·罗兰</p>
 
                   </a-card>
                   <template>
                     <div>
-                      <el-button @click="show2 = !show2">Click Me</el-button>
+                      <el-button icon="el-icon-star-off" circle @click="show2 = !show2" style="background-color: rgba(255,255,255,0);margin-top: 10px;border-color: #ffffff">心愿单</el-button>
+                      <transition>
+                        <div v-show="show2" style="margin-left:240px;margin-top:-25px;margin-bottom: -15px" >
+                          <p style="font-size: 15px">
+                            <a-button style="border-color: rgba(255,255,255,0)" ghost @click="$router.push('PersonWishes?name=' + user.name)">查看全部<a-icon  style="margin-left: 1px" type="double-right" /></a-button>
+                          </p>
+                        </div>
+                      </transition>
+
+                      <transition><div v-show="show2" style="padding-top: -30px;"> <el-divider content-position="right" style="background-color: rgba(255,255,255,0);"></el-divider></div></transition>
 
                       <div v-show="show2" style="display: flex; margin-top: 20px; height: 100px;">
                         <transition name="el-zoom-in-center" >
-                          <div style="background-color: rgba(255,255,255,0.67)" v-show="show2" class="transition-box"><p style="color: #000c17;font-size: 10px;writing-mode: vertical-rl;">上海理工</p></div>
+                          <div style="background-color: rgba(255,255,255,0.67); border-radius: 50%;" v-show="show2" class="transition-box">
+                            <p style="color: #000c17; font-size: 12px; ">上海理工大学</p>
+                          </div>
+
                         </transition>
 
                         <transition name="el-zoom-in-top">
-                          <div v-show="show2" class="transition-box">2</div>
+                          <div style="background-color: rgba(255,255,255,0.67); border-radius: 50%;" v-show="show2" class="transition-box">
+                            <p style="color: #000c17; font-size: 12px; ">华东理工大学</p>
+                          </div>
                         </transition>
 
                         <transition name="el-zoom-in-bottom">
-                          <div v-show="show2" class="transition-box">3</div>
+                          <div style="background-color: rgba(255,255,255,0.67); border-radius: 60%;" v-show="show2" class="transition-box">
+                            <p style="color: #000c17; font-size: 12px; ">上海交通大学</p>
+                          </div>
                         </transition>
                       </div>
+
+                      <transition><div v-show="show2"> <el-divider></el-divider></div></transition>
                     </div>
                   </template>
+
+
+
                   <el-carousel :interval="4000" type="card" height="150px":width="300">
                     <el-carousel-item v-for="item in 6" :key="item">
                       <h3 class="medium">{{ item }}</h3>
+                      <p class="english-word">{{ words[item-1].word }}       {{ words[item-1].chinese }}    </p>
+
                     </el-carousel-item>
                   </el-carousel>
+                  <el-col :span="6">
+                    <a-button ghost @click="handleRandom">
+                      <a-icon type="redo" />
+                    </a-button>
+                  </el-col>
                 </template>
               </el-row>
+            </div>
+            <div>
+              <i class="el-icon-top" style="font-size: 80px;"></i>
+              <i class="el-icon-top" style="font-size: 80px;"></i>
+              <i class="el-icon-top" style="font-size: 80px;"></i>
+              <i class="el-icon-top" style="font-size: 80px;"></i>
+              <p style="font-size:28px;color: #ffffff">Attention!Focus on youself</p>
+
             </div>
           </el-col>
         </el-row>
@@ -263,6 +300,15 @@
   </div>
 
 </template>
+
+
+
+  <div>
+    <p>每天都要记得来打卡哦！！！</p>
+  </div>
+
+
+
 
 <script>
 export default {
@@ -400,6 +446,46 @@ export default {
 </script>
 
 <style scoped>
+
+.heart {
+  width: 100px; /* 调整心形的大小 */
+  height: 100px; /* 调整心形的大小 */
+  background-color: red; /* 心形的颜色 */
+  position: relative;
+  transform: rotate(-45deg);
+  margin: 50px;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  width: 100px; /* 调整心形的大小 */
+  height: 100px; /* 调整心形的大小 */
+  background-color: red; /* 心形的颜色 */
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+}
+
+.heart::before {
+  left: -50px;
+}
+
+.heart::after {
+  left: 50px;
+}
+
+
+
+
+.english-word {
+  color: #333; /* 设置颜色 */
+  font-size: 25px; /* 设置字体大小 */
+  text-align: center; /* 设置文本居中 */
+  margin-top: 10px; /* 设置上边距 */
+}
+
+
 .transition-box {
   margin-bottom: 10px;
   width: 200px;
@@ -510,10 +596,22 @@ export default {
   background-position: center; /* 图片居中显示 */
 }
 .el-carousel__item:nth-child(6n+5) {
+
   background-image: url('@/assets/pic/xdu.png');
   background-size: cover; /* 以填充整个元素为目标 */
   background-repeat: no-repeat; /* 不重复平铺背景图 */
   background-position: center; /* 图片居中显示 */
+}
+
+.english-word{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 添加文字阴影效果以提高可读性 */
 }
 
 
@@ -525,3 +623,11 @@ export default {
  }
 
 </style>
+
+
+
+
+
+
+
+
