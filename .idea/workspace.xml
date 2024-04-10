@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c07ac5c-2ff4-40b2-868e-9a1b89962a48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/files/微信图片_20231209165811.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/222.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/333.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/444.png" afterDir="false" />
+    <list default="true" id="4e9c0b57-2a92-4ba8-8792-b6be570f0fd2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/PersonWishes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/PersonWishes.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,25 +28,17 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="2enhQXVWqTQBQZiqfUZ9FlZOhQl" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2euZMQKEunrwHfPPnVm6PvC8El3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -59,19 +48,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "spring.configuration.checksum": "d164d99c46d45be6b1e7585ff7ea10e7",
-    "ts.external.directory.path": "C:\\Java\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "ts.external.directory.path": "D:\\Software\\IDEA\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\文档\GitHub\web-\view\view\src\assets" />
-      <recent name="D:\ui\files" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.serve">
+  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="springboot" />
@@ -98,22 +83,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8c07ac5c-2ff4-40b2-868e-9a1b89962a48" name="Changes" comment="" />
-      <created>1712546236280</created>
+      <changelist id="4e9c0b57-2a92-4ba8-8792-b6be570f0fd2" name="Changes" comment="" />
+      <created>1712756376641</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712546236280</updated>
-      <workItem from="1712546238402" duration="3004000" />
-      <workItem from="1712549750341" duration="267000" />
-      <workItem from="1712583151005" duration="2808000" />
-      <workItem from="1712633816947" duration="18935000" />
+      <updated>1712756376641</updated>
+      <workItem from="1712756378662" duration="6932000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
