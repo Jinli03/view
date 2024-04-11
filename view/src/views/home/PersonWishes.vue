@@ -9,6 +9,8 @@
       <el-table :data="tables" style="width: 100%" height="250" @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="50" align="center">
         </el-table-column>
+        <el-table-column  prop="id" label="id" align="center">
+        </el-table-column>
         <el-table-column fixed prop="school" label="学校" width="150" align="center">
         </el-table-column>
         <el-table-column prop="sub" label="专业" width="120" align="center">
@@ -31,9 +33,16 @@
         </el-table-column>
         <el-table-column prop="rescore23" label="23年复试分数" width="120" align="center">
         </el-table-column>
+        <el-table-column label="操作" align="center">
+          <template v-slot="scope">
+            <el-button size="mini" type="danger" plain @click="del(scope.row.id)">删除</el-button>
+          </template>
+        </el-table-column>
       </el-table>
       <p>请选择两个院校进行对比</p>
       <el-button type="info" @click="compare">对比</el-button>
+
+
     </el-card>
     <el-drawer
         title="我是学校1"
@@ -295,7 +304,20 @@ export default {
         // 提示用户选择两行进行对比
         this.$message.error('请选择两个院校进行对比');
       }
-    }
+    },
+    del(id) {
+      this.$confirm('确认删除?', '确认', {type: "warning"}).then(response =>{
+        this.$request.delete('/wishes/delete/' + id ).then(res =>{
+
+          if (res.code === '200') {
+            this.$message.success('成功')
+            this.load()
+          } else {
+            this.$message.error(res.msg)
+          }
+        })
+      }).catch(() => {})
+    },
   }
 }
 </script>

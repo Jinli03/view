@@ -70,4 +70,23 @@ public class WishesController {
         // 返回结果
         return Result.success(wishesList);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteWishById(@PathVariable Integer id) {
+        try {
+            // 调用 service 方法执行删除操作
+            boolean success = wishesService.removeById(id);
+
+            // 判断是否删除成功，并返回相应结果
+            if (success) {
+                return Result.success("删除成功");
+            } else {
+                return Result.error("删除失败");
+            }
+        } catch (Exception e) {
+            // 捕获异常，返回删除失败的结果
+            return Result.error("删除失败：" + e.getMessage());
+        }
+    }
+
 }
