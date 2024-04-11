@@ -16,7 +16,7 @@
           </div>
         </div>
 
-        <div class="watermark" >Designd by Agency.Icons by icons8</div>
+        <div class="watermark" >&copy; Designd by Agency.Icons by icons8</div>
 
 
       </div>
