@@ -15,6 +15,10 @@
             <img src="@/assets/444.png" alt="Third Image" class="image3" style="width: 300px; height: 300px; position: absolute; bottom: 520px; left: 185px" >
           </div>
         </div>
+
+        <div class="watermark" >Designd by Agency.Icons by icons8</div>
+
+
       </div>
     </div>
   </div>
@@ -30,6 +34,17 @@ export default {
 </script>
 
 <style scoped>
+
+.watermark {
+  position: fixed;
+  bottom: 40px; /* 距离底部的距离 */
+  left: 20px; /* 距离左侧的距离 */
+  font-size: 20px; /* 水印字体大小 */
+  color: rgba(0, 0, 0, 0.1); /* 水印字体颜色 */
+  z-index: 9999; /* 确保水印在其他元素之上 */
+}
+
+
 .background-image-container {
   background-image: url('@/assets/background/homepage.png');
   background-size: cover; /* 使用 cover 让背景图片填满整个容器 */
