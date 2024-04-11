@@ -8,7 +8,12 @@
       <div style="backdrop-filter: blur(8px); width: 95%; height: 95%; border-radius: 2%;">
         <Echarts/>
       </div>
+
+
     </el-container>
+
+
+
       <el-container class="background-image-container">
         <div style="backdrop-filter: blur(8px); width: 95%; height: 95%; border-radius: 2%;">
           <el-tabs v-model="activeName" @tab-click="handleClick">
@@ -26,6 +31,8 @@
       </el-container>
   </div>
 </template>
+
+
 
 <script>
 import gsap from 'gsap';

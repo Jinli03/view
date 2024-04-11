@@ -3,21 +3,43 @@
     <el-row :gutter="20" style="display: flex">
       <el-col :span="12">
         <div style="display: flex; justify-content: center;">
-          <div id="echart" style="width: 580px; height:580px; margin-right: auto; "></div>
+          <div id="echart" style="width: 600px; height:650px; margin-right: auto; "></div>
         </div>
       </el-col>
-      <el-col :span="12">
-        <el-card>
-          <el-collapse v-model="activeName" accordion>
-            <el-collapse-item title="A区" name="1">
-              <div>北京、天津、上海、江苏、浙江、福建、山东、河南、湖北、湖南、广东、河北、山西、辽宁、吉林、黑龙江、安徽、江西、重庆、四川、陕西21个省 (市)</div>
-            </el-collapse-item>
-            <el-collapse-item title="B区" name="2">
-              <div>内蒙古、广西、海南、贵州、云南、西藏、甘肃、青海、宁夏、新疆10个省 (区)</div>
-            </el-collapse-item>
-          </el-collapse>
-          <el-button @click="$router.push('Sear')" size="mini">查看详情</el-button>
-        </el-card>
+      <el-col :span="16">
+
+          <div class="block">
+            <el-timeline>
+              <el-timeline-item timestamp="2023/11/2" placement="top">
+                <el-card style="background-color: rgba(255,255,255,0.63)">
+                  <h4>2023年11月2日，在英国布莱奇利园，一名参会者经过首届人工智能安全峰会的宣传展板。首届人工智能安全峰会于1日至2日在英国布莱奇利园举行，中方代表团参与人工智能安全等问题讨论，积极宣介中方提出的《全球人工智能治理倡议》，并与相关国家开展双边会谈。</h4>
+                  <p style="text-indent: 42em;margin-bottom: -3px">2023/11/2 19:13</p>
+                </el-card>
+              </el-timeline-item>
+              <el-timeline-item timestamp="2023/10/18" placement="top">
+                <el-card style="background-color: rgba(255,255,255,0.63)">
+                  <h4>2023年10月18日，第三届“一带一路”国际合作高峰论坛成功举行。习近平主席在论坛开幕式上发表主旨演讲，宣布中国支持高质量共建“一带一路”八项行动，为共建“一带一路”明确了新方向，开辟了新愿景，注入了新动力。</h4>
+                  <p style="text-indent: 42em;margin-bottom: -3px">2023/10/18 21:50</p>
+                </el-card>
+              </el-timeline-item>
+              <el-timeline-item timestamp="2023/8/24" placement="top">
+                <el-card style="background-color: rgba(255,255,255,0.63)">
+                  <h4>2023年8月24日，日本不顾国际社会普遍质疑和有关国家强烈反对，单方面强行启动福岛核事故污染水排海。全年3轮排放累计超过2.3万吨核污水流入大海，全部排完预计需至少30年。人为向海洋排放核污水前所未有，大量放射性核素排海产生的累积海洋效应存在极大不确定性。福岛核污水排海事关全人类健康、全球海洋环境、国际公共利益，绝不是日本一家的私事。日方应严肃对待国内外合理关切，本着负责任和建设性的态度妥善处理福岛核污水问题。</h4>
+                  <p style="text-indent: 42em;margin-bottom: -3px">2023/8/24 22:44</p>
+                </el-card>
+              </el-timeline-item>
+              <el-timeline-item  timestamp="2023/3/10" placement="top" style="color: #1890ff">
+                <el-card style="background-color: rgba(255,255,255,0.63)">
+                  <h4>2023年3月10日，在中国斡旋下，沙特阿拉伯和伊朗达成“北京协议”，同意恢复中断7年的外交关系。次月，两国正式复交。两个地区大国握手言和，带动中东地区多国和解。此后，叙利亚重回阿拉伯国家联盟，埃及和土耳其恢复大使级外交关系，阿联酋、巴林等国同卡塔尔关系迈向正常化……地区国家间缓和关系、谋求发展与合作势头明显增强，表明以对话协商解决矛盾分歧顺应民心，符合时代潮流和各国利益。</h4>
+                  <p style="text-indent: 42em;margin-bottom: -3px">2023/3/10 20:46</p>
+                </el-card>
+              </el-timeline-item>
+
+
+            </el-timeline>
+          </div>
+
+
       </el-col>
     </el-row>
   </div>
@@ -757,6 +779,8 @@ export default {
   methods: {}
 }
 </script>
+
+
 
 <style>
 
