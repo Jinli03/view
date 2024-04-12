@@ -10,22 +10,107 @@
     </h1>
     <div>
       <el-row :gutter="20" style="padding: 8px">
-        <el-col :span="6">
+        <el-col :span="8">
           <el-card style="height: 40%">
             <div id="person" style="width: 100%; height: 400px"></div>
           </el-card>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="8">
           <el-card>
             <div id="reperson" style="width: 100%; height: 400px"></div>
           </el-card>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="8">
           <el-card>
             <div id="rescore" style="width: 100%; height: 400px"></div>
           </el-card>
         </el-col>
       </el-row>
+    </div>
+    <div>
+      <el-card>
+        <el-table
+            :data="tablesdata"
+            style="width: 100%"
+            height="250">
+          <el-table-column
+              fixed
+              prop="school"
+              label="学校"
+              width="150"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="sub"
+              label="专业"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="subcode"
+              label="专业代码"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="city"
+              label="城市"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="square"
+              label="地区"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="person21"
+              label="21年招收人数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="person22"
+              label="22年招收人数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="person23"
+              label="23年招收人数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="rescore21"
+              label="21年复试分数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="rescore22"
+              label="22年复试分数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              prop="rescore23"
+              label="23年复试分数"
+              width="120"
+              align="center">
+          </el-table-column>
+          <el-table-column
+              label="收藏"
+              width="120"
+              align="center">
+            <template v-slot="scope">
+              <el-button size="mini" type="primary" plain @click="handleWish(scope.row)">收藏</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </el-card>
+
     </div>
   </div>
 </template>
@@ -123,7 +208,9 @@ export default {
   data() {
     return {
       id: '',
-      tables: []
+      tables: [],
+      tablesdata: [],
+      user: JSON.parse(localStorage.getItem('pilot') || '{}'),
     }
   },
   created() {
@@ -135,6 +222,7 @@ export default {
       return
     }
     this.load()
+    this.load2()
   },
   methods: {
     load() {
@@ -157,6 +245,43 @@ export default {
         this.updateChart('rescore', tables.rescoreGroups, option3);
       }).catch(error => {
         console.error('Error fetching data:', error);
+      });
+    },
+    load2() {
+      let id = this.$route.query.id
+      this.id = id
+      this.$request.get('/tables/distinctSubInfo/' + id ).then(res => {
+        this.tablesdata = res.data
+        console.log(this.tablesdata)
+      }).catch(error => {
+        console.error('Error fetching data:', error);
+      });
+    },
+    handleWish(row) {
+      const data = {
+        name: this.user.name,
+        school: row.school,
+        sub: row.sub,
+        subcode: row.subcode,
+        city: row.city,
+        square: row.square,
+        person21: row.person21,
+        person22: row.person22,
+        person23: row.person23,
+        rescore21: row.rescore21,
+        rescore22: row.rescore22,
+        rescore23: row.rescore23,
+        max: row.max,
+        min: row.min,
+        pic: row.pic
+      };
+      this.$request.put('/wishes/save', data).then(res => {
+        if (res.code === '200') {
+          this.$message.success('收藏成功')
+          this.load()
+        } else {
+          this.$message.error(res.msg)
+        }
       });
     },
 

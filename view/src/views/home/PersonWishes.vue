@@ -310,7 +310,7 @@ export default {
         this.$request.delete('/wishes/delete/' + id ).then(res =>{
 
           if (res.code === '200') {
-            this.$message.success('成功')
+            this.$message.success('删除成功')
             this.load()
           } else {
             this.$message.error(res.msg)

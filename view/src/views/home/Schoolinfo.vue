@@ -354,9 +354,12 @@ export default {
         pic: row.pic
       };
       this.$request.put('/wishes/save', data).then(res => {
-        console.log('保存成功');
-      }).catch(error => {
-        console.error('保存失败', error);
+        if (res.code === '200') {
+          this.$message.success('收藏成功')
+          this.load()
+        } else {
+          this.$message.error(res.msg)
+        }
       });
     }
   },

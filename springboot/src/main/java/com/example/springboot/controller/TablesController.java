@@ -292,4 +292,17 @@ public class TablesController {
         // 构建 Result 对象并返回
         return Result.success(tablesList);
     }
+
+    @GetMapping("/distinctSubInfo/{id}")
+    public Result distinctSubInfo(@PathVariable Integer id) {
+        // 使用 LambdaQueryWrapper 构建查询条件
+        LambdaQueryWrapper<Tables> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Tables::getId, id);
+
+        // 调用 Service 层的方法查询符合条件的记录
+        List<Tables> tablesList = tablesService.list(queryWrapper);
+
+        // 构建 Result 对象并返回
+        return Result.success(tablesList);
+    }
 }
