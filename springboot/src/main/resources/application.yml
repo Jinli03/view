@@ -2,6 +2,9 @@ server:
   port: 9090
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${ip}:3306/view?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -18,3 +21,7 @@ spring:
       max-file-size: 20MB
       max-request-size: 20MB
 ip: 122.51.129.82
+springfox:
+  documentation:
+    swagger-ui:
+      enabled=false
