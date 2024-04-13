@@ -10,6 +10,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Dict;
 import com.example.springboot.common.AuthAccess;
 import com.example.springboot.common.Result;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,6 +35,7 @@ public class FileController {
 
     private static final String ROOT_PATh = System.getProperty("user.dir") + File.separator + "files";// D:\vue\files
 
+    @ApiOperation("上传文件")
     @PostMapping("/upload")//上传
     public Result upload(MultipartFile file) throws IOException {
         String originFilename = file.getOriginalFilename();//文件原始名称
@@ -53,6 +55,7 @@ public class FileController {
     }
 
     @AuthAccess
+    @ApiOperation("下载文件")
     @GetMapping("/download/{fileName}")//下载
     public void download(@PathVariable String fileName, HttpServletResponse response) throws Exception{
         //response.addHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));//下载

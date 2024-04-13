@@ -13,10 +13,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @Configuration
 public class InterceptorConfig extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
+        super.addInterceptors(registry);
         registry.addInterceptor(jwtInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/login", "/register");
-                super.addInterceptors(registry);
+                .excludePathPatterns("/login", "/register","/swagger-ui.html");
     }
 
     @Bean

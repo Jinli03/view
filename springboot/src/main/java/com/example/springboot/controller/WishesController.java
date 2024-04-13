@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.springboot.common.Result;
 import com.example.springboot.entity.Wishes;
 import com.example.springboot.service.WishesService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -22,6 +23,8 @@ public class WishesController {
     @Resource
     WishesService wishesService;
 
+
+    @ApiOperation("收藏院校到心愿单")
     @PutMapping("/save")
     public Result save(@RequestBody Wishes wish) {
         // 检查是否存在与要添加的记录相同的记录
@@ -42,6 +45,7 @@ public class WishesController {
         }
     }
 
+    @ApiOperation("获取登录用户心愿单随机三个心愿学校专业")
     @GetMapping("/selectThree")
     public Result selectThreeSchools(@RequestParam String name) {
         // 查询数据库中符合条件的记录，并随机排序，选择前三条记录
@@ -59,6 +63,7 @@ public class WishesController {
         }
     }
 
+    @ApiOperation("获取登录用户所有心愿学校专业")
     @GetMapping("/selectAll/{name}")
     public Result selectAllSchools(@PathVariable String name) {
         QueryWrapper<Wishes> queryWrapper = new QueryWrapper<>();
@@ -71,6 +76,7 @@ public class WishesController {
         return Result.success(wishesList);
     }
 
+    @ApiOperation("删除心愿学校专业")
     @DeleteMapping("/delete/{id}")
     public Result deleteWishById(@PathVariable Integer id) {
         try {

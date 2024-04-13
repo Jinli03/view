@@ -10,6 +10,7 @@ import com.example.springboot.common.Result;
 import com.example.springboot.entity.Forum;
 import com.example.springboot.service.ForumService;
 import com.example.springboot.common.AuthAccess;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,8 @@ import java.util.List;
 public class ForumController {
     @Resource
     ForumService forumService;
+
+    @ApiOperation("获取评论数据")
     @GetMapping("/select")
     public Result selectComments() {
         List<Forum> forumList = forumService.list(new QueryWrapper<Forum>().orderByDesc("id"));

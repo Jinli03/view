@@ -18,6 +18,7 @@ import com.example.springboot.entity.User;
 import com.example.springboot.service.TablesService;
 import com.example.springboot.service.UserService;
 import com.example.springboot.utils.TokenUtils;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,6 +38,7 @@ public class TablesController {
     UserService userService;
 
     @AuthAccess //token放行
+    @ApiOperation("添加一条学校专业数据")
     @PostMapping("/add")
     public Result add(@RequestBody Tables tables) {
         User currentUser = TokenUtils.getCurrentUser();
@@ -47,6 +49,7 @@ public class TablesController {
 
     //更新
     @PutMapping("/update")
+    @ApiOperation("更新一条学校专业数据")
     public Result update(@RequestBody Tables table) {
         tablesService.updateById(table);
         return Result.success();
@@ -54,6 +57,7 @@ public class TablesController {
 
     //单个删除
     @DeleteMapping("/delete/{id}")
+    @ApiOperation("根据id删除一条学校专业数据")
     public Result delete(@PathVariable Integer id) {
         tablesService.removeById(id);
         return Result.success();
@@ -61,6 +65,7 @@ public class TablesController {
 
     //批量删除
     @DeleteMapping("/delete/batch")
+    @ApiOperation("批量删除学校专业数据")
     public Result batchdelete(@RequestBody List<Integer> ids) {
         tablesService.removeByIds(ids);
         return Result.success();
@@ -68,12 +73,14 @@ public class TablesController {
 
     //查询全部
     @GetMapping("/select")
+    @ApiOperation("查询所有学校专业数据")
     public Result selectNews() {
         List<Tables> tablesList = tablesService.list(new QueryWrapper<Tables>().orderByDesc("id"));
         return Result.success(tablesList);
     }
 
     //单条件查询
+    @ApiOperation("根据id查询一条学校专业数据")
     @GetMapping("/selectById/{id}")
     public Result selectByIdNews(@PathVariable Integer id) {
         Tables tables = tablesService.getById(id);
@@ -81,6 +88,7 @@ public class TablesController {
     }
 
 
+    @ApiOperation("分页查询学校专业数据")
     @GetMapping("/selectByPage")
     public Result selectByPage(@RequestParam Integer pageNum,
                                @RequestParam Integer pageSize,
@@ -116,6 +124,7 @@ public class TablesController {
         }
     }
 
+    @ApiOperation("根据地区和城市获取对应条件的数据")
     @GetMapping("/selectBySchool")
     public Result selectBySchool(
             @RequestParam Integer pageNum,
@@ -144,6 +153,7 @@ public class TablesController {
         return Result.success(page);
     }
 
+    @ApiOperation("根据专业获取对应的数据")
     @GetMapping("/selectBySub")
     public Result selectBySub(@RequestParam Integer pageNum,
                                @RequestParam Integer pageSize,
@@ -169,6 +179,7 @@ public class TablesController {
     }
 
 
+    @ApiOperation("根据id获取某个专业的所有信息")
     @GetMapping("/distinctSub/{id}")
     public Result distinctSchools(@PathVariable Integer id) {
         try {
@@ -219,6 +230,7 @@ public class TablesController {
 
 
     //只返回某个学校的复试人数分数等信息
+    @ApiOperation("返回某个学校的复试人数分数等信息")
     @GetMapping("/distinctSchool/{school}")
     public Result distinctSchools(@PathVariable String school) {
         List<Tables> schoolInfo = tablesService.list(Wrappers.<Tables>lambdaQuery()
@@ -280,6 +292,7 @@ public class TablesController {
     }
 
     //获得某个学校的具体信息
+    @ApiOperation("获得某个学校的具体信息")
     @GetMapping("/distinctSchoolInfo/{school}")
     public Result distinctSchoolInfo(@PathVariable String school) {
         // 使用 LambdaQueryWrapper 构建查询条件
@@ -293,6 +306,7 @@ public class TablesController {
         return Result.success(tablesList);
     }
 
+    @ApiOperation("获取某个专业的详细信息")
     @GetMapping("/distinctSubInfo/{id}")
     public Result distinctSubInfo(@PathVariable Integer id) {
         // 使用 LambdaQueryWrapper 构建查询条件

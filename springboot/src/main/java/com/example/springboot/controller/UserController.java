@@ -15,6 +15,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot.common.Result;
 import com.example.springboot.entity.User;
 import com.example.springboot.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,6 +36,7 @@ public class UserController {
     UserService userService;
 
     //添加
+    @ApiOperation("添加用户数据")
     @PostMapping("/add")
     public Result add(@RequestBody User user) {
         try {
@@ -50,6 +52,7 @@ public class UserController {
     }
 
     //更新
+    @ApiOperation("更新用户数据")
     @PutMapping("/update")
     public Result update(@RequestBody User user) {
         userService.updateById(user);
@@ -57,6 +60,7 @@ public class UserController {
     }
 
     //单个删除
+    @ApiOperation("单个删除用户数据")
     @DeleteMapping("/delete/{id}")
     public Result delete(@PathVariable Integer id) {
         userService.removeById(id);
@@ -64,6 +68,7 @@ public class UserController {
     }
 
     //批量删除
+    @ApiOperation("批量删除用户数据")
     @DeleteMapping("/delete/batch")
     public Result batchdelete(@RequestBody List<Integer> ids) {
         userService.removeByIds(ids);
@@ -71,6 +76,7 @@ public class UserController {
     }
 
     //查询全部
+    @ApiOperation("查询全部用户数据")
     @GetMapping("/select")
     public Result selectUser() {
         List<User> user = userService.list(new QueryWrapper<User>().orderByDesc("id"));
@@ -78,6 +84,7 @@ public class UserController {
     }
 
     //单条件查询
+    @ApiOperation("根据id查询用户数据")
     @GetMapping("/selectById/{id}")
     public Result selectByIdUser(@PathVariable Integer id) {
         User user = userService.getById(id);
@@ -99,6 +106,7 @@ public class UserController {
 //    }
 
     //分页查询
+    @ApiOperation("分页查询用户数据")
     @GetMapping("/selectByPage")
     public Result selectByPage(@RequestParam Integer pageNum,
                                @RequestParam Integer pageSize,
@@ -112,6 +120,7 @@ public class UserController {
         return Result.success(page);
     }
 
+    @ApiOperation("导出用户数据")
     @GetMapping("/export")
     public void exportData(@RequestParam(required = false) String name,
                            @RequestParam(required = false) String phone,
@@ -140,6 +149,7 @@ public class UserController {
         }
     }
 
+    @ApiOperation("导入用户数据")
     @PostMapping("/import")
     public Result importData(MultipartFile file) throws IOException {
         ExcelReader reader = ExcelUtil.getReader(file.getInputStream());
