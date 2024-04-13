@@ -5,21 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344eff4c-3ca0-459b-a782-fd3673437041" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/common/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/common/InterceptorConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/common/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/common/JwtInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/ForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/TablesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/TablesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/WishesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/WishesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/WordsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/WordsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/test/java/com/example/springboot/SpringbootApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/components/Echarts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/Echarts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/components/School.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/School.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/components/Sub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/Sub.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/PersonWishes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/PersonWishes.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/Personal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Personal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/Schoolinfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Schoolinfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Search.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/Subinfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Subinfo.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712827487107</updated>
       <workItem from="1712827489062" duration="7026000" />
-      <workItem from="1712936648050" duration="12747000" />
+      <workItem from="1712936648050" duration="17007000" />
     </task>
     <servers />
   </component>

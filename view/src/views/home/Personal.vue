@@ -1,29 +1,18 @@
 <template>
   <div>
+    <template>
+      <a-affix :offset-top="80">
+        <a-button type="primary" @click="$router.push('HomePage')">返回到首页</a-button>
+      </a-affix>
+    </template>
     <el-container class="background-image-container">
       <div style=" width: 95%; height: 95%">
         <el-row :gutter="50">
-
           <el-col :span="6" style="height: 750px; border-radius: 10px; padding: 1px; ">
             <div>
               <el-row style="display:flex; justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
                 <img :src="user.title || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style=" width: 50px; height: 50px; border-radius: 50%; margin: 10px">
                 <p style="color: #ffffff; margin-top: 15px">"静水流深<br>沧笙踏歌"</p>
-              </el-row>
-              <el-row>
-                <el-card style="justify-content: center; width: 80%; margin-left: 20px; border-radius: 20px">
-                  <div>
-                    <el-statistic
-                        group-separator=","
-                        :value="value1"
-                        :title="title1"
-                    >
-                      <template slot="prefix">
-                        <i class="el-icon-user"></i>
-                      </template>
-                    </el-statistic>
-                  </div>
-                </el-card>
               </el-row>
               <el-row>
                 <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
@@ -72,7 +61,7 @@
                 </el-card>
               </el-row>
               <el-row>
-                <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; margin-bottom: 10px; border-radius: 20px">
+                <el-card style="justify-content: center; width: 80%; margin-left: 20px; margin-top: 10px; border-radius: 20px">
                   <template>
                     <a-popover title="Todo-List">
                       <template slot="content">
@@ -88,9 +77,9 @@
                     </a-popover>
                   </template>
                 </el-card>
-                <lottie :options="defaultOptions" :height="170" :width="300" @animCreated="handleAnimation"/>
-
-
+              </el-row>
+              <el-row>
+                <lottie :options="defaultOptions" :height="170" :width="200" @animCreated="handleAnimation"/>
               </el-row>
             </div>
           </el-col>
@@ -113,7 +102,7 @@
         <a-tooltip title="Like">
           <a-icon type="like" :theme="action === 'liked' ? 'filled' : 'outlined'" @click="like" />
         </a-tooltip>
-        <span style="padding-left: 8px;cursor: auto">
+        <span style="padding-left: 8px; cursor: auto">
           {{ likes }}
         </span>
       </span>
@@ -125,7 +114,7 @@
               @click="dislike"
           />
         </a-tooltip>
-        <span style="padding-left: 8px;cursor: auto">
+        <span style="padding-left: 8px; cursor: auto">
           {{ dislikes }}
         </span>
       </span>
@@ -137,7 +126,7 @@
                     src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                     alt="Han Solo"
                 />
-                <p slot="content" style="color: #000c17">
+                <p slot="content">
                   We supply a series of design principles, practical patterns and high quality design resources
                   (Sketch and Axure), to help people create their product prototypes beautifully and
                   efficiently.
@@ -149,21 +138,17 @@
             </template>
 
             <template>
-              <a-list
-                  class="comment-list"
-                  :header="`${data.length} replies`"
-                  item-layout="horizontal"
-                  :data-source="data"
-              >
-                <span key="comment-basic-like">
+              <a-comment>
+                <template slot="actions">
+      <span key="comment-basic-like">
         <a-tooltip title="Like">
           <a-icon type="like" :theme="action === 'liked' ? 'filled' : 'outlined'" @click="like" />
         </a-tooltip>
-        <span style="padding-left: 8px;cursor: auto">
+        <span style="padding-left: 8px; cursor: auto">
           {{ likes }}
         </span>
       </span>
-                <span key="comment-basic-dislike">
+                  <span key="comment-basic-dislike">
         <a-tooltip title="Dislike">
           <a-icon
               type="dislike"
@@ -171,24 +156,27 @@
               @click="dislike"
           />
         </a-tooltip>
-        <span style="padding-left: 8px;cursor: auto">
+        <span style="padding-left: 8px; cursor: auto">
           {{ dislikes }}
         </span>
       </span>
-                <a-list-item slot="renderItem" slot-scope="item, index">
-                  <a-comment :author="item.author" :avatar="item.avatar">
-                    <template slot="actions">
-                      <span v-for="action in item.actions">{{ action }}</span>
-                    </template>
-                    <p slot="content">
-                      {{ item.content }}
-                    </p>
-                    <a-tooltip slot="datetime" :title="item.datetime.format('YYYY-MM-DD HH:mm:ss')">
-                      <span>{{ item.datetime.fromNow() }}</span>
-                    </a-tooltip>
-                  </a-comment>
-                </a-list-item>
-              </a-list>
+                  <span key="comment-basic-reply-to">Reply to</span>
+                </template>
+                <a slot="author">Han Solo</a>
+                <a-avatar
+                    slot="avatar"
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                    alt="Han Solo"
+                />
+                <p slot="content">
+                  We supply a series of design principles, practical patterns and high quality design resources
+                  (Sketch and Axure), to help people create their product prototypes beautifully and
+                  efficiently.
+                </p>
+                <a-tooltip slot="datetime" :title="moment().format('YYYY-MM-DD HH:mm:ss')">
+                  <span>{{ moment().fromNow() }}</span>
+                </a-tooltip>
+              </a-comment>
             </template>
 
             <el-steps :space="300" :active="1" finish-status="success" style="margin-top: 60px;width: 900px">
@@ -198,22 +186,6 @@
             </el-steps>
 
           </el-col>
-
-
-
-          <div>
-            <template>
-              <div  style="display: flex; justify-content: space-between; margin-bottom: 2px;margin-top: 1px;">
-                <a-progress type="circle" :percent="75" :format="percent => ` 数学`" />
-                <a-progress type="circle" :percent="100" :format="() => '英语'" />
-                <a-progress type="circle" :percent="25" status="exception" :format="() => '专业课'">
-                  <template #format="percent">
-                    <span style="color: red">{{ percent }}</span>
-                  </template>
-                </a-progress>
-              </div>
-            </template>
-          </div>
 
 
           <el-col :span="6" style=" border-radius: 10px; padding: 10px">
@@ -331,6 +303,7 @@ export default {
   data() {
 
     return {
+      top: 10,
       show2:true,
       defaultOptions:{
         animationData:animationData

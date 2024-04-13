@@ -44,13 +44,15 @@
     <div>
       <el-row :gutter="20" style="padding: 8px">
         <el-col :span="6" v-for="school in schools" :key="school.id" style="padding: 10px">
-          <el-card class="card-item" style="cursor: pointer; background-size: cover" :style="{ backgroundImage: 'url(' + school.pic + ')' }">
-            <div slot="header">
+          <el-card class="card-item" style="cursor: pointer; background-size: cover; " :style="{ backgroundImage: 'url(' + school.pic + ')' }">
+            <div slot="header" style="color: black;">
               <span>{{ school.school }}</span>
+              <span style="float: right;">{{ school.sub }}</span>
             </div>
-            <div>
-              <p>城市: {{ school.city }}</p>
-              <p>专业: {{ school.sub }}</p>
+
+            <div style="color: black;">
+              <p>.</p>
+              <p>.</p>
               <div slot="footer">
                 <el-button @click="$router.push('Subinfo?id=' + school.id)" size="mini">查看详情</el-button>
               </div>

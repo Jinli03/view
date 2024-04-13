@@ -5,15 +5,20 @@
 -->
 <template>
   <div>
+    <template>
+      <a-affix :offset-top="80">
+        <a-button type="primary" @click="$router.push('Personal')">返回到个人中心</a-button>
+      </a-affix>
+    </template>
     <el-card>
-      <el-table :data="tables" style="width: 100%" height="250" @selection-change="handleSelectionChange">
+      <el-table :data="tables" style="width: 100%" height="500" @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="50" align="center">
         </el-table-column>
-        <el-table-column  prop="id" label="id" align="center">
+        <el-table-column  prop="id" label="id" align="center" visible="false">
         </el-table-column>
         <el-table-column fixed prop="school" label="学校" width="150" align="center">
         </el-table-column>
-        <el-table-column prop="sub" label="专业" width="120" align="center">
+        <el-table-column fixed prop="sub" label="专业" width="120" align="center">
         </el-table-column>
         <el-table-column prop="subcode" label="专业代码" width="120" align="center">
         </el-table-column>

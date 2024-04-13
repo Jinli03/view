@@ -7,6 +7,11 @@
   <div>
     <h1>
       hello, {{ tables.school }}  {{ tables.sub }}
+      <template>
+        <a-affix :offset-top="80">
+          <a-button type="primary" @click="$router.push('Search')">返回到分析局</a-button>
+        </a-affix>
+      </template>
     </h1>
     <div>
       <el-row :gutter="20" style="padding: 8px">
@@ -41,6 +46,7 @@
               align="center">
           </el-table-column>
           <el-table-column
+              fixed
               prop="sub"
               label="专业"
               width="120"

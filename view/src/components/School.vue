@@ -5,7 +5,7 @@
 -->
 <template>
   <div>
-    <el-card style="margin-right: 20px; margin-left: 20px">
+
       <div>
         <el-row :gutter="20">
           <el-col :span="4">
@@ -55,19 +55,20 @@
           </el-col>
         </el-row>
       </div>
-    </el-card>
+
 
 
     <div>
       <el-row :gutter="20" style="padding: 8px">
         <el-col :span="6" v-for="school in schools" :key="school.id" style="padding: 10px">
           <el-card class="card-item" style="cursor: pointer; background-size: cover" :style="{ backgroundImage: 'url(' + school.pic + ')' }">
-            <div slot="header">
+            <div slot="header" style="color: black;">
               <span>{{ school.school }}</span>
+              <span style="float: right;">{{ school.city }}</span>
             </div>
-            <div>
-              <p>城市: {{ school.city }}</p>
-              <p>地区: {{ school.square }}</p>
+            <div style="color: black;">
+              <p>.</p>
+              <p>.</p>
               <div slot="footer">
                 <el-button @click="$router.push('Schoolinfo?school=' + school.school)" size="mini">查看详情</el-button>
               </div>
@@ -117,7 +118,16 @@ export default {
       }, {
         value: '深圳',
         label: '深圳'
-      }],
+      },{
+        value: '武汉',
+        label: '武汉'
+      }, {
+        value: '成都',
+        label: '成都'
+      }, {
+        value: '杭州',
+        label: '杭州'
+        },],
       value1: [],
     }
   },

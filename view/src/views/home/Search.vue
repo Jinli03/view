@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="emptybox">  </div>
+    <template>
+      <a-affix :offset-top="80">
+        <a-button type="primary" @click="$router.push('HomePage')">返回到首页</a-button>
+      </a-affix>
+    </template>
     <div style="margin: 10px">
       <p>开始考研择校之旅吧！</p>
     </div>
