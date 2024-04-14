@@ -20,7 +20,7 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 20MB
-ip: 122.51.129.82
+ip: 106.54.241.107
 #springfox:
 #  documentation:
 #    swagger-ui:

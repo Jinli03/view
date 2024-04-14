@@ -13,7 +13,8 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot.common.AuthAccess;
 import com.example.springboot.common.Result;
-import com.example.springboot.entity.Tables;
+import com.example.springboot.entity.Tablese;
+import com.example.springboot.entity.Tablese;
 import com.example.springboot.entity.User;
 import com.example.springboot.service.TablesService;
 import com.example.springboot.service.UserService;
@@ -40,7 +41,7 @@ public class TablesController {
     @AuthAccess //token放行
     @ApiOperation("添加一条学校专业数据")
     @PostMapping("/add")
-    public Result add(@RequestBody Tables tables) {
+    public Result add(@RequestBody Tablese tables) {
         User currentUser = TokenUtils.getCurrentUser();
         tables.setUserId(currentUser.getId());
         tablesService.save(tables);
@@ -50,7 +51,7 @@ public class TablesController {
     //更新
     @PutMapping("/update")
     @ApiOperation("更新一条学校专业数据")
-    public Result update(@RequestBody Tables table) {
+    public Result update(@RequestBody Tablese table) {
         tablesService.updateById(table);
         return Result.success();
     }
@@ -75,7 +76,7 @@ public class TablesController {
     @GetMapping("/select")
     @ApiOperation("查询所有学校专业数据")
     public Result selectNews() {
-        List<Tables> tablesList = tablesService.list(new QueryWrapper<Tables>().orderByDesc("id"));
+        List<Tablese> tablesList = tablesService.list(new QueryWrapper<Tablese>().orderByDesc("id"));
         return Result.success(tablesList);
     }
 
@@ -83,7 +84,7 @@ public class TablesController {
     @ApiOperation("根据id查询一条学校专业数据")
     @GetMapping("/selectById/{id}")
     public Result selectByIdNews(@PathVariable Integer id) {
-        Tables tables = tablesService.getById(id);
+        Tablese tables = tablesService.getById(id);
         return Result.success(tables);
     }
 
@@ -97,7 +98,7 @@ public class TablesController {
                                @RequestParam(name = "school", required = false) String school,
                                @RequestParam(name = "sub", required = false) String sub) {
         try {
-            QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
+            QueryWrapper<Tablese> queryWrapper = new QueryWrapper<>();
 
             // 添加条件查询
             if (StringUtils.isNotBlank(square)) {
@@ -114,7 +115,7 @@ public class TablesController {
             }
 
             // 分页查询所有属性
-            Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
+            Page<Tablese> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
 
             // 返回成功结果
             return Result.success(page);
@@ -132,7 +133,7 @@ public class TablesController {
             @RequestParam(name = "square", required = false) String square,
             @RequestParam(name = "city", required = false) String city // 接收以逗号分隔的城市字符串
     ) {
-        QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<Tablese> queryWrapper = new QueryWrapper<>();
         queryWrapper.like(StrUtil.isNotBlank(square), "square", square);
         // 按逗号分割城市字符串为城市列表
         if (StrUtil.isNotBlank(city)) {
@@ -141,9 +142,9 @@ public class TablesController {
         }
         queryWrapper.select("school", "city", "square", "pic");
         queryWrapper.groupBy("school", "city", "square", "pic");
-        Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
-        List<Tables> records = page.getRecords();
-        for (Tables record : records) {
+        Page<Tablese> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
+        List<Tablese> records = page.getRecords();
+        for (Tablese record : records) {
             Integer authorid = record.getUserId();
             User user = userService.getById(authorid);
             if (user != null) {
@@ -159,7 +160,7 @@ public class TablesController {
                                @RequestParam Integer pageSize,
                                @RequestParam(name = "sub", required = false) String sub) {
         try {
-            QueryWrapper<Tables> queryWrapper = new QueryWrapper<>();
+            QueryWrapper<Tablese> queryWrapper = new QueryWrapper<>();
 
             // 添加条件查询
             if (StringUtils.isNotBlank(sub)) {
@@ -168,7 +169,7 @@ public class TablesController {
             }
 
             // 分页查询所有属性
-            Page<Tables> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
+            Page<Tablese> page = tablesService.page(new Page<>(pageNum, pageSize), queryWrapper);
 
             // 返回成功结果
             return Result.success(page);
@@ -184,12 +185,12 @@ public class TablesController {
     public Result distinctSchools(@PathVariable Integer id) {
         try {
             // 根据传入的id查询数据
-            List<Tables> schoolInfo = tablesService.list(Wrappers.<Tables>lambdaQuery()
-                    .eq(Tables::getId, id));
+            List<Tablese> schoolInfo = tablesService.list(Wrappers.<Tablese>lambdaQuery()
+                    .eq(Tablese::getId, id));
 
             // 提取每个分组中的招收人数列表
             List<Integer> personList = new ArrayList<>();
-            for (Tables tables : schoolInfo) {
+            for (Tablese tables : schoolInfo) {
                 personList.add(tables.getPerson23());
                 personList.add(tables.getPerson22());
                 personList.add(tables.getPerson21());
@@ -198,7 +199,7 @@ public class TablesController {
 
             // 提取每个分组中的复试人数列表
             List<Integer> repersonList = new ArrayList<>();
-            for (Tables tables : schoolInfo) {
+            for (Tablese tables : schoolInfo) {
                 repersonList.add(tables.getReperson23());
                 repersonList.add(tables.getReperson22());
                 repersonList.add(tables.getReperson21());
@@ -207,7 +208,7 @@ public class TablesController {
 
             // 提取每个分组中的复试分数线列表
             List<Integer> rescoreList = new ArrayList<>();
-            for (Tables tables : schoolInfo) {
+            for (Tablese tables : schoolInfo) {
                 rescoreList.add(tables.getRescore23());
                 rescoreList.add(tables.getRescore22());
                 rescoreList.add(tables.getRescore21());
@@ -233,19 +234,19 @@ public class TablesController {
     @ApiOperation("返回某个学校的复试人数分数等信息")
     @GetMapping("/distinctSchool/{school}")
     public Result distinctSchools(@PathVariable String school) {
-        List<Tables> schoolInfo = tablesService.list(Wrappers.<Tables>lambdaQuery()
-                .eq(Tables::getSchool, school));
+        List<Tablese> schoolInfo = tablesService.list(Wrappers.<Tablese>lambdaQuery()
+                .eq(Tablese::getSchool, school));
 
         // 根据 sub 属性进行分组
-        Map<String, List<Tables>> groupedBySub = schoolInfo.stream()
-                .collect(Collectors.groupingBy(Tables::getSub));
+        Map<String, List<Tablese>> groupedBySub = schoolInfo.stream()
+                .collect(Collectors.groupingBy(Tablese::getSub));
 
         // 提取每个分组中的招收人数列表
         Map<String, List<Integer>> personGroups = new HashMap<>();
-        for (Map.Entry<String, List<Tables>> entry : groupedBySub.entrySet()) {
-            List<Tables> tablesList = entry.getValue();
+        for (Map.Entry<String, List<Tablese>> entry : groupedBySub.entrySet()) {
+            List<Tablese> tablesList = entry.getValue();
             List<Integer> personList = new ArrayList<>();
-            for (Tables tables : tablesList) {
+            for (Tablese tables : tablesList) {
                 personList.add(tables.getPerson21());
                 personList.add(tables.getPerson22());
                 personList.add(tables.getPerson23());
@@ -256,10 +257,10 @@ public class TablesController {
 
         // 提取每个分组中的复试人数列表
         Map<String, List<Integer>> repersonGroups = new HashMap<>();
-        for (Map.Entry<String, List<Tables>> entry : groupedBySub.entrySet()) {
-            List<Tables> tablesList = entry.getValue();
+        for (Map.Entry<String, List<Tablese>> entry : groupedBySub.entrySet()) {
+            List<Tablese> tablesList = entry.getValue();
             List<Integer> repersonList = new ArrayList<>();
-            for (Tables tables : tablesList) {
+            for (Tablese tables : tablesList) {
                 repersonList.add(tables.getReperson21());
                 repersonList.add(tables.getReperson22());
                 repersonList.add(tables.getReperson23());
@@ -270,10 +271,10 @@ public class TablesController {
 
         // 提取每个分组中的复试分数线列表
         Map<String, List<Integer>> rescoreGroups = new HashMap<>();
-        for (Map.Entry<String, List<Tables>> entry : groupedBySub.entrySet()) {
-            List<Tables> tablesList = entry.getValue();
+        for (Map.Entry<String, List<Tablese>> entry : groupedBySub.entrySet()) {
+            List<Tablese> tablesList = entry.getValue();
             List<Integer> rescoreList = new ArrayList<>();
-            for (Tables tables : tablesList) {
+            for (Tablese tables : tablesList) {
                 rescoreList.add(tables.getRescore21());
                 rescoreList.add(tables.getRescore22());
                 rescoreList.add(tables.getRescore23());
@@ -296,11 +297,11 @@ public class TablesController {
     @GetMapping("/distinctSchoolInfo/{school}")
     public Result distinctSchoolInfo(@PathVariable String school) {
         // 使用 LambdaQueryWrapper 构建查询条件
-        LambdaQueryWrapper<Tables> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Tables::getSchool, school);
+        LambdaQueryWrapper<Tablese> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Tablese::getSchool, school);
 
         // 调用 Service 层的方法查询符合条件的记录
-        List<Tables> tablesList = tablesService.list(queryWrapper);
+        List<Tablese> tablesList = tablesService.list(queryWrapper);
 
         // 构建 Result 对象并返回
         return Result.success(tablesList);
@@ -310,11 +311,11 @@ public class TablesController {
     @GetMapping("/distinctSubInfo/{id}")
     public Result distinctSubInfo(@PathVariable Integer id) {
         // 使用 LambdaQueryWrapper 构建查询条件
-        LambdaQueryWrapper<Tables> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Tables::getId, id);
+        LambdaQueryWrapper<Tablese> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Tablese::getId, id);
 
         // 调用 Service 层的方法查询符合条件的记录
-        List<Tables> tablesList = tablesService.list(queryWrapper);
+        List<Tablese> tablesList = tablesService.list(queryWrapper);
 
         // 构建 Result 对象并返回
         return Result.success(tablesList);

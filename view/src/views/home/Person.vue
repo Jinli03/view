@@ -13,6 +13,7 @@
               :action="$baseUrl + '/file/upload'"
               :headers="{ token: user.token}"
               :show-file-list="false"
+              list-type="picture"
               :on-success="handleAvatarSuccess">
             <img v-if="user.title" :src="user.title" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -39,7 +40,8 @@
 export default {
   name: "Person",
   props: {},
-  components: {},
+  components: {
+  },
   data() {
     return {
       user: JSON.parse(localStorage.getItem('pilot') || '{}'),

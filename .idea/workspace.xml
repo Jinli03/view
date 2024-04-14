@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344eff4c-3ca0-459b-a782-fd3673437041" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/src/assets/school/北京理工大学.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/components/Echarts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/Echarts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/TablesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/TablesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Tables.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Tablese.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/mapper/TablesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/mapper/TablesMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/service/TablesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/service/TablesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/view/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/src/components/School.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/School.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/src/components/Sub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/Sub.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/PersonWishes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/PersonWishes.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/Personal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Personal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/Schoolinfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Schoolinfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Search.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/Subinfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Subinfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/Person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Person.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +58,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -75,9 +79,19 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
     "ts.external.directory.path": "D:\\Software\\IDEA\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected="npm.serve">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ui\view\src\assets\school" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="springboot" />
@@ -110,7 +124,9 @@
       <option name="presentableId" value="Default" />
       <updated>1712827487107</updated>
       <workItem from="1712827489062" duration="7026000" />
-      <workItem from="1712936648050" duration="17007000" />
+      <workItem from="1712936648050" duration="17635000" />
+      <workItem from="1713021716458" duration="1208000" />
+      <workItem from="1713068968739" duration="21053000" />
     </task>
     <servers />
   </component>

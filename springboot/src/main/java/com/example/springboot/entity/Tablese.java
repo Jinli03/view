@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Tables {
+public class Tablese {
     @TableId(type= IdType.AUTO)
     private Integer id;//不用管
     private String school;//学校
