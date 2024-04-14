@@ -49,6 +49,7 @@ public class FileController {
             originFilename = System.currentTimeMillis() + "_" + mainname + "." + extName;
         }
         File saveFile = new File(ROOT_PATh + File.separator + originFilename); // D:\vue\files\56526_aaa.png
+        System.out.println("文件路径："+ROOT_PATh + File.separator + originFilename);
         file.transferTo(saveFile);//存储到本地磁盘
         String url = "http://" + ip + ":" + port + "/file/download/" + originFilename;
         return Result.success(url);

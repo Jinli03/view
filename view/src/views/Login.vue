@@ -52,7 +52,7 @@
       </div>
     </div>
     <div style="text-align: center; padding: 10px; color: white; ">
-      &copy; 2024 @Jinli | 考研分析局.
+      &copy; 2024 @Jinli @hfy | 考研分析局.
     </div>
   </div>
 </template>

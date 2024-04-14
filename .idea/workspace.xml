@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344eff4c-3ca0-459b-a782-fd3673437041" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/school/北京理工大学.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/TablesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/TablesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Tables.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Tablese.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/mapper/TablesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/mapper/TablesMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/service/TablesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/service/TablesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/view/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/common/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/common/InterceptorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/src/components/School.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/School.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/src/components/Sub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/Sub.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/src/views/home/Person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Person.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/Register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,8 +69,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
     "ts.external.directory.path": "D:\\Software\\IDEA\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
@@ -126,11 +121,21 @@
       <workItem from="1712827489062" duration="7026000" />
       <workItem from="1712936648050" duration="17635000" />
       <workItem from="1713021716458" duration="1208000" />
-      <workItem from="1713068968739" duration="21053000" />
+      <workItem from="1713068968739" duration="27821000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="saveFile" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ui$SpringbootApplication.ic" NAME="SpringbootApplication Coverage Results" MODIFIED="1713093936892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

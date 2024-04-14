@@ -61,7 +61,7 @@
     <div>
       <el-row :gutter="20" style="padding: 8px">
         <el-col :span="6" v-for="school in schools" :key="school.id" style="padding: 10px">
-          <el-card class="card-item" style="cursor: pointer; background-size: cover" :style="{ backgroundImage: 'url(' + require('@/assets/school/北京理工大学.jpeg') + ')' }">
+          <el-card class="card-item" style="cursor: pointer; background-size: cover" :style="{ backgroundImage: 'url(' + school.pic + ')' }">
             <div slot="header" style="color: black;">
               <span>{{ school.school }}</span>
               <span style="float: right;">{{ school.city }}</span>
