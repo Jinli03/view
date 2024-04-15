@@ -404,7 +404,7 @@ export default {
           // 处理没有返回数据的情况
         }
       }).catch(error => {
-        this.$message.error('Failed to publish comment:', error);
+        this.$message.error('发布失败', error);
       });
       this.dialogFormVisible = false;
     },
