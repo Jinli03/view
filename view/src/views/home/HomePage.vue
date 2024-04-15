@@ -4,15 +4,15 @@
       <div>
         <div>
           <div>
-            <img src="../../assets/222.png" alt="First Image" class="image1" style="width: 350px; height: 300px; position: absolute; top: 530px; left: 430px;" @click="$router.push('search')">
-            <p style="position: absolute; top: 800px; left: 550px; font-size: 26px">分析局</p>
+            <img src="../../assets/222.png" alt="First Image" class="image1" style="width: 200px; height: 200px; position: absolute; top: 480px; left: 400px;" @click="$router.push('search')">
+            <p style="position: absolute; top: 650px; left: 430px; font-size: 26px">分析局</p>
           </div>
           <div>
-            <img src="@/assets/333.png" alt="Second Image" class="image2" style="width: 300px; height: 300px; position: absolute; bottom: 520px; right: 185px" @click="$router.push('personal')">
-            <p style="position: absolute; bottom: 505px; right:400px; font-size: 26px">个人中心</p>
+            <img src="@/assets/333.png" alt="Second Image" class="image2" style="width: 200px; height: 200px; position: absolute; bottom: 450px; right: 320px" @click="$router.push('personal')">
+            <p style="position: absolute; bottom: 420px; right:400px; font-size: 26px">个人档案局</p>
           </div>
           <div>
-            <img src="@/assets/444.png" alt="Third Image" class="image3" style="width: 300px; height: 300px; position: absolute; bottom: 520px; left: 185px" >
+            <img src="@/assets/444.png" alt="Third Image" class="image3" style="width: 200px; height: 200px; position: absolute; bottom: 500px; left: 300px" >
           </div>
         </div>
 
@@ -47,7 +47,7 @@ export default {
 
 .background-image-container {
   background-image: url('@/assets/background/homepage.png');
-  background-size: cover; /* 使用 cover 让背景图片填满整个容器 */
+  background-size: 90%; /* 使用 cover 让背景图片填满整个容器 */
   background-position: center; /* 图片居中显示 */
   height: 100vh; /* 使用视口高度作为容器高度 */
   width: 100vw; /* 使用视口宽度作为容器宽度 */

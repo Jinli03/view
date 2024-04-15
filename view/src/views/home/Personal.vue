@@ -97,87 +97,81 @@
 <!--              </div>-->
             <template>
               <a-comment>
-                <template slot="actions">
-      <span key="comment-basic-like">
-        <a-tooltip title="Like">
-          <a-icon type="like" :theme="action === 'liked' ? 'filled' : 'outlined'" @click="like" />
-        </a-tooltip>
-        <span style="padding-left: 8px; cursor: auto">
-          {{ likes }}
-        </span>
-      </span>
-                  <span key="comment-basic-dislike">
-        <a-tooltip title="Dislike">
-          <a-icon
-              type="dislike"
-              :theme="action === 'disliked' ? 'filled' : 'outlined'"
-              @click="dislike"
-          />
-        </a-tooltip>
-        <span style="padding-left: 8px; cursor: auto">
-          {{ dislikes }}
-        </span>
-      </span>
-                  <span key="comment-basic-reply-to">Reply to</span>
-                </template>
-                <a slot="author">Han Solo</a>
+                <a slot="author" style="color: white">{{ forms[0].author}}</a>
                 <a-avatar
                     slot="avatar"
-                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                    :src="forms[0].avatr || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
                     alt="Han Solo"
                 />
-                <p slot="content">
-                  We supply a series of design principles, practical patterns and high quality design resources
-                  (Sketch and Axure), to help people create their product prototypes beautifully and
-                  efficiently.
+
+                <p slot="content" style="color: black">
+                  {{ forms[0].comment }}
                 </p>
                 <a-tooltip slot="datetime" :title="moment().format('YYYY-MM-DD HH:mm:ss')">
-                  <span>{{ moment().fromNow() }}</span>
+                  <span>{{ forms[0].time }}</span>
                 </a-tooltip>
               </a-comment>
             </template>
 
             <template>
               <a-comment>
-                <template slot="actions">
-      <span key="comment-basic-like">
-        <a-tooltip title="Like">
-          <a-icon type="like" :theme="action === 'liked' ? 'filled' : 'outlined'" @click="like" />
-        </a-tooltip>
-        <span style="padding-left: 8px; cursor: auto">
-          {{ likes }}
-        </span>
-      </span>
-                  <span key="comment-basic-dislike">
-        <a-tooltip title="Dislike">
-          <a-icon
-              type="dislike"
-              :theme="action === 'disliked' ? 'filled' : 'outlined'"
-              @click="dislike"
-          />
-        </a-tooltip>
-        <span style="padding-left: 8px; cursor: auto">
-          {{ dislikes }}
-        </span>
-      </span>
-                  <span key="comment-basic-reply-to">Reply to</span>
-                </template>
-                <a slot="author">Han Solo</a>
+                <a slot="author" style="color: white">{{ forms[1].author}}</a>
                 <a-avatar
                     slot="avatar"
-                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                    :src="forms[1].avatr || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
                     alt="Han Solo"
                 />
-                <p slot="content">
-                  We supply a series of design principles, practical patterns and high quality design resources
-                  (Sketch and Axure), to help people create their product prototypes beautifully and
-                  efficiently.
+
+                <p slot="content" style="color: black">
+                  {{ forms[1].comment }}
                 </p>
                 <a-tooltip slot="datetime" :title="moment().format('YYYY-MM-DD HH:mm:ss')">
-                  <span>{{ moment().fromNow() }}</span>
+                  <span>{{ forms[1].time }}</span>
                 </a-tooltip>
               </a-comment>
             </template>
+
+            <template>
+              <a-comment>
+                <a slot="author" style="color: white">{{ forms[2].author}}</a>
+                <a-avatar
+                    slot="avatar"
+                    :src="forms[2].avatr || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
+                    alt="Han Solo"
+                />
+
+                <p slot="content" style="color: black">
+                  {{ forms[2].comment }}
+                </p>
+                <a-tooltip slot="datetime" :title="moment().format('YYYY-MM-DD HH:mm:ss')">
+                  <span>{{ forms[2].time }}</span>
+                </a-tooltip>
+              </a-comment>
+            </template>
+
+            <template>
+              <a-comment>
+                <a slot="author" style="color: white">{{ forms[3].author}}</a>
+                <a-avatar
+                    slot="avatar"
+                    :src="forms[3].avatr || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
+                    alt="Han Solo"
+                />
+
+                <p slot="content" style="color: black">
+                  {{ forms[3].comment }}
+                </p>
+                <a-tooltip slot="datetime" :title="moment().format('YYYY-MM-DD HH:mm:ss')">
+                  <span >{{ forms[3].time }}</span>
+                </a-tooltip>
+              </a-comment>
+            </template>
+
+            <el-row>
+              <el-button type="primary" icon="el-icon-edit" style="float: left;" @click="$router.push('Foruminfo')">查看全部</el-button>
+              <el-button type="primary" icon="el-icon-edit" style="float: right;" @click="dialogFormVisible = true">写评论</el-button>
+            </el-row>
+
 
             <el-steps :space="300" :active="1" finish-status="success" style="margin-top: 60px;width: 900px">
               <el-step title="决心" style="color: #000c17" ></el-step>
@@ -198,7 +192,7 @@
                     <p style="font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500;font-family: 楷体">
                       "最可怕的敌人，就是没有坚强的信念。"</p>
 
-                    <p style=" font-family: 楷体; text-indent: 14em;font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">           ——罗曼·罗兰</p>
+                    <p style=" font-family: 楷体; text-indent: 13em;font-size: 14px; color: rgba(0, 0, 0, 0.85); margin-bottom: 16px; font-weight: 500">           ——罗曼·罗兰</p>
 
                   </a-card>
                   <template>
@@ -269,6 +263,25 @@
 
       </div>
     </el-container>
+    <el-dialog title="评论" :visible.sync="dialogFormVisible" style="border-radius: 40px">
+      <el-form :model="form">
+        <el-select v-model="form.tag" multiple placeholder="请选择">
+          <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+          </el-option>
+        </el-select>
+        <el-form-item label="内容" :label-width="formLabelWidth">
+          <el-input v-model="form.comment" autocomplete="off"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="handleComment">发 布</el-button>
+      </div>
+    </el-dialog>
   </div>
 
 </template>
@@ -308,24 +321,6 @@ export default {
       defaultOptions:{
         animationData:animationData
       },
-      data: [
-        {
-          actions: ['Reply to'],
-          author: 'Han Solo',
-          avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-          content:
-              'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-          datetime: moment().subtract(1, 'days'),
-        },
-        {
-          actions: ['Reply to'],
-          author: 'Han Solo',
-          avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-          content:
-              'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-          datetime: moment().subtract(2, 'days'),
-        },
-      ],
       user: JSON.parse(localStorage.getItem('pilot') || '{}'),
       welcomeMessage: "欢迎来到考研分析局",
       displayedMessage: "",
@@ -342,8 +337,26 @@ export default {
       likes: 0,
       dislikes: 0,
       action: null,
-
+      dialogFormVisible: false,
       moment,
+      form: [],
+      options: [{
+        value: '考研',
+        label: '考研'
+      }, {
+        value: '高数',
+        label: '高数'
+      }, {
+        value: '择校',
+        label: '择校'
+      }, {
+        value: '自律',
+        label: '自律'
+      }, {
+        value: '事已至此先吃饭吧',
+        label: '事已至此先吃饭吧'
+      }],
+      forms:[]
     };
   },
   mounted() {
@@ -359,15 +372,48 @@ export default {
     });
     this.handleRandom()
     this.select()
+    this.getComment()
   },
   methods: {
+    getComment() {
+      this.$request.get('/forum/select', {
+      }).then(res => {
+        if (res.data) {
+          // 确保在访问其属性之前，res.data不为null
+          this.forms = res.data;
+          console.log(this.forms)
+        } else {
+        }
+      });
+    },
+    handleComment() {
+      const tag = this.form.tag.join(',');
+      const currentTime = new Date().toISOString(); // 获取当前时间并转换为 ISO 格式字符串
+      const formattedTime = new Date(currentTime).toISOString().slice(0, 19).replace('T', ' '); // 转换为所需格式 'YYYY-MM-DD HH:mm:ss'
+      this.$request.post('/forum/publish', {
+        author: this.user.name,
+        avatr: this.user.title,
+        tag: tag,
+        comment: this.form.comment,
+        time: formattedTime // 使用格式化后的时间值
+      }).then(res => {
+        if (res.data) {
+          this.$message.success('发布成功')
+          this.getComment()
+        } else {
+          // 处理没有返回数据的情况
+        }
+      }).catch(error => {
+        this.$message.error('Failed to publish comment:', error);
+      });
+      this.dialogFormVisible = false;
+    },
     handleRandom() {
       this.$request.get('/words/select', {
       }).then(res => {
         if (res.data) {
           // 确保在访问其属性之前，res.data不为null
           this.words = res.data;
-          console.log('words:', this.words);
         } else {
         }
       });

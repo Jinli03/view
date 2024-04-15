@@ -25,4 +25,5 @@ public class Forum {
     private String tag;
     private String comment;
     private String time;
+    private String avatr;
 }

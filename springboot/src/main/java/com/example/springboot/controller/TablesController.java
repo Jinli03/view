@@ -191,27 +191,27 @@ public class TablesController {
             // 提取每个分组中的招收人数列表
             List<Integer> personList = new ArrayList<>();
             for (Tablese tables : schoolInfo) {
-                personList.add(tables.getPerson23());
-                personList.add(tables.getPerson22());
                 personList.add(tables.getPerson21());
+                personList.add(tables.getPerson22());
+                personList.add(tables.getPerson23());
                 // 您可以继续根据需要添加更多的 person 属性
             }
 
             // 提取每个分组中的复试人数列表
             List<Integer> repersonList = new ArrayList<>();
             for (Tablese tables : schoolInfo) {
-                repersonList.add(tables.getReperson23());
-                repersonList.add(tables.getReperson22());
                 repersonList.add(tables.getReperson21());
+                repersonList.add(tables.getReperson22());
+                repersonList.add(tables.getReperson23());
                 // 您可以继续根据需要添加更多的 reperson 属性
             }
 
             // 提取每个分组中的复试分数线列表
             List<Integer> rescoreList = new ArrayList<>();
             for (Tablese tables : schoolInfo) {
-                rescoreList.add(tables.getRescore23());
-                rescoreList.add(tables.getRescore22());
                 rescoreList.add(tables.getRescore21());
+                rescoreList.add(tables.getRescore22());
+                rescoreList.add(tables.getRescore23());
                 // 您可以继续根据需要添加更多的 rescore 属性
             }
 

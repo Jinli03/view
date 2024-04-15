@@ -7,7 +7,7 @@
   <div>
     <template>
       <a-affix :offset-top="80">
-        <a-button type="primary" @click="$router.push('Personal')">返回到个人中心</a-button>
+        <a-button type="primary" @click="$router.push('Personal')">返回到个人档案局</a-button>
       </a-affix>
     </template>
     <el-card>

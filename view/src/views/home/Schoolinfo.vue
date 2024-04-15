@@ -126,7 +126,7 @@ import * as echarts from "echarts";
 const option1 = {
   title: {
     text: '历年录取人数',
-    subtext: 'Fake Data',
+    subtext: '仅供参考',
     left: 'center'
   },
   xAxis: {
@@ -153,7 +153,7 @@ const option1 = {
 const option2 = {
   title: {
     text: '历年复试人数',
-    subtext: 'Fake Data',
+    subtext: '仅供参考',
     left: 'center'
   },
   xAxis: {
@@ -180,7 +180,7 @@ const option2 = {
 const option3 = {
   title: {
     text: '历年复试分数',
-    subtext: 'Fake Data',
+    subtext: '仅供参考',
     left: 'center'
   },
   xAxis: {
