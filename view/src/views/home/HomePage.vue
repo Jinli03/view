@@ -5,11 +5,11 @@
         <div>
           <div>
             <img src="../../assets/222.png" alt="First Image" class="image1" style="width: 200px; height: 200px; position: absolute; top: 480px; left: 400px;" @click="$router.push('search')">
-            <p style="position: absolute; top: 650px; left: 430px; font-size: 26px">分析局</p>
+            <p style="position: absolute; top: 650px; left: 430px; font-size: 26px; color: black">分析局</p>
           </div>
           <div>
             <img src="@/assets/333.png" alt="Second Image" class="image2" style="width: 200px; height: 200px; position: absolute; bottom: 450px; right: 320px" @click="$router.push('personal')">
-            <p style="position: absolute; bottom: 420px; right:400px; font-size: 26px">个人档案局</p>
+            <p style="position: absolute; bottom: 400px; right:380px; font-size: 26px; color: black">个人档案局</p>
           </div>
           <div>
             <img src="@/assets/444.png" alt="Third Image" class="image3" style="width: 200px; height: 200px; position: absolute; bottom: 500px; left: 300px" >
