@@ -329,7 +329,7 @@ export default {
       title2: "已上传专业数量",
       title3: "网页访问量",
       value1: 4154,
-      value2: 1314,
+      value2: 84,
       value3: 1314,
       item: [],
       words: [],
@@ -398,6 +398,8 @@ export default {
         time: formattedTime // 使用格式化后的时间值
       }).then(res => {
         if (res.data) {
+          this.form.tag=[]
+          this.form.comment=''
           this.$message.success('发布成功')
           this.getComment()
         } else {
