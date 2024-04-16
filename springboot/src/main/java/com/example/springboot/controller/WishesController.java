@@ -32,6 +32,7 @@ public class WishesController {
                         .eq(Wishes::getSchool, wish.getSchool())
                         .eq(Wishes::getSub, wish.getSub())
                         .eq(Wishes::getCity, wish.getCity())
+                        .eq(Wishes::getName, wish.getName())
                 // 按需添加其他条件
         );
 
