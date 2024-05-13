@@ -1,3 +1,8 @@
+<!--
+*@Exchange
+*@author Jinli
+*@date 2024/4/22 11:21
+-->
 <template>
   <div>
     <template>
@@ -6,66 +11,41 @@
       </a-affix>
     </template>
     <div style="margin: 10px">
-      <p>开始考研择校之旅吧！</p>
+      <p>开始选择图书之旅吧！</p>
     </div>
     <el-container class="background-image-container">
       <div style="backdrop-filter: blur(8px); width: 95%; height: 95%; border-radius: 2%;">
-        <Echarts/>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane label="图书商城" name="first" @click="load(1)">
+            <User/>
+          </el-tab-pane>
+          <el-tab-pane label="检查" name="second" v-if="user.role === '管理员'" @click="load1(1)">
+            <Manager/>
+          </el-tab-pane>
+          <el-tab-pane label="上传" name="third" v-if="user.role === '商家'">
+            <Merchant/>
+          </el-tab-pane>
+        </el-tabs>
       </div>
     </el-container>
-
-
-
-      <el-container class="background-image-container">
-        <div style="backdrop-filter: blur(8px); width: 95%; height: 95%; border-radius: 2%;">
-          <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="院校库" name="first" @click="load(1)">
-              <School/>
-            </el-tab-pane>
-            <el-tab-pane label="专业库" name="second" @click="load1(1)">
-              <Sub/>
-            </el-tab-pane>
-            <el-tab-pane label="智能推荐" name="third">
-
-            </el-tab-pane>
-          </el-tabs>
-        </div>
-      </el-container>
   </div>
 </template>
 
 
 
 <script>
-import gsap from 'gsap';
-import lottie from "vue-lottie";
-import * as animationData from '../../assets/load.json';
-import * as echarts from 'echarts';
-import Sub from "@/components/Sub.vue";
-import School from "@/components/School.vue";
-import Echarts from "@/components/Echarts.vue";
+import Merchant from "@/components/Merchant.vue";
+import Manager from "@/components/Manager.vue";
+import User from "@/components/User.vue";
 export default {
   components:{
-    Sub,School,Echarts
+    User, Manager, Merchant
   },
   name: 'search',
   data() {
     return {
       user: JSON.parse(localStorage.getItem('pilot') || '{}'),
-      ids: [],
-      content: '',
       value: [300, 350],
-      marks: {
-        200: '200',
-        300: '300',
-        400: '400',
-        350: {
-          style: {
-            color: '#1989FA'
-          },
-          label: this.$createElement('strong', '350')
-        }
-      },
       activeName: 'first',
     }
   },
@@ -81,14 +61,6 @@ export default {
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
-    },
-    handleSelectionChange(rows) {
-      this.ids = rows.map(v => v.id)
-      console.log(rows)
-    },
-    reset() {
-      this.square = ''
-      this.load()
     },
     load(pageNum) {
       // Your load function

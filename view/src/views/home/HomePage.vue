@@ -12,7 +12,8 @@
             <p style="position: absolute; bottom: 430px; right:380px; font-size: 26px; color: black">个人档案局</p>
           </div>
           <div>
-            <img src="@/assets/444.png" alt="Third Image" class="image3" style="width: 200px; height: 200px; position: absolute; bottom: 500px; left: 300px" >
+            <img src="@/assets/444.png" alt="Third Image" class="image3" style="width: 200px; height: 200px; position: absolute; bottom: 470px; left: 300px" @click="$router.push('exchange')">
+            <p style="position: absolute; bottom: 420px; left:330px; font-size: 26px; color: black">图书交易局</p>
           </div>
         </div>
 
@@ -88,6 +89,14 @@ export default {
 }
 
 .image2:hover {
+  transform: scale(1.1); /* 放大1.1倍 */
+}
+
+.image3 {
+  transition: transform 0.3s ease-out;
+}
+
+.image3:hover {
   transform: scale(1.1); /* 放大1.1倍 */
 }
 </style>

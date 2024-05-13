@@ -32,6 +32,7 @@ const routes = [
       { path: 'homepage', name: 'HomePage', meta: { name: '主页'}, component: () => import('../views/home/HomePage.vue')},
       { path: 'analyze', name: 'Analyze', meta: { name: '分析局'}, component: () => import('../views/home/Analyze.vue'),},
       { path: 'search', name: 'Search', meta: { name: '分析局'}, component: () => import('../views/home/Search.vue')},
+      { path: 'exchange', name: 'Exchange', meta: { name: '图书交易局'}, component: () => import('../views/home/Exchange.vue')},
       { path: 'info', name: 'Info', meta: { name: '详情'}, component: () => import('../views/home/Info.vue')},
       { path: 'schoolinfo', name: 'Schoolinfo', meta: { name: '学校详情'}, component: () => import('../views/home/Schoolinfo.vue')},
       { path: 'personwishes', name: 'PersonWishes', meta: { name: '心愿单'}, component: () => import('../views/home/PersonWishes.vue')},

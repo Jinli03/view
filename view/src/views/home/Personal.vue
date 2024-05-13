@@ -449,16 +449,6 @@ export default {
       });
     },
 
-    like() {
-      this.likes = 1;
-      this.dislikes = 0;
-      this.action = 'liked';
-    },
-    dislike() {
-      this.likes = 0;
-      this.dislikes = 1;
-      this.action = 'disliked';
-    },
   }
 
 
