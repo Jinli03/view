@@ -10,13 +10,9 @@
         <a-button type="primary" @click="$router.push('HomePage')">返回到首页</a-button>
       </a-affix>
     </template>
-    <template>
-      <a-affix :offset-top="500" >
-        <a-button  shape="circle"  @click="$router.push('HomePage')">
-          <a-icon type=<ShoppingCartOutlined />
-        </a-button>
-      </a-affix>
-    </template>
+
+
+
 
 
     <div style="margin: 10px">
@@ -37,6 +33,18 @@
         </el-tabs>
       </div>
     </el-container>
+<!--购物车-->
+    <div class="fixed-button-container">
+      <el-button circle size="medium" icon="el-icon-shopping-cart-1" @click="drawer = true" />
+    </div>
+
+    <el-drawer
+        title="我是标题"
+        :visible.sync="drawer"
+        :with-header="false">
+      <span>购物车</span>
+    </el-drawer>
+
   </div>
 </template>
 
@@ -53,6 +61,7 @@ export default {
   name: 'search',
   data() {
     return {
+      drawer:false,
       user: JSON.parse(localStorage.getItem('pilot') || '{}'),
       value: [300, 350],
       activeName: 'first',
@@ -87,6 +96,14 @@ export default {
 
 
 <style>
+.fixed-button-container {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+
+  z-index: 1000; /* 确保按钮在其他内容之上 */
+}
+
 
 .background-image-container {
   background-image: url('@/assets/background/up.png');

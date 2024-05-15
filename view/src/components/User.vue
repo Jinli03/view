@@ -42,8 +42,8 @@
       </el-row>
     </div>
 
-    <el-row :gutter="5" style="padding: 6px">
-      <el-col :span="5" v-for="form in forms" :key="form.id" style="  padding:18px">
+    <el-row :gutter="5" style="padding: 5px">
+      <el-col :span="5" v-for="form in forms" :key="form.id" style="  padding:12px">
         <el-card class="card-item" style="background-size: cover;width: 200px;height:300px" >
           <div slot="header" class="header-image"  :style="{ backgroundImage: 'url(' + form.picture + ')' }">
 
