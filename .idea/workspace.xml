@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344eff4c-3ca0-459b-a782-fd3673437041" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/view/src/assets/icon/icons8-add-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/src/assets/icon/icons8-add.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Exchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/springboot/entity/Exchange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/src/components/User.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/components/User.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/src/views/home/Exchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/view/src/views/home/Exchange.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +180,7 @@
       <workItem from="1715607342195" duration="4426000" />
       <workItem from="1715653899467" duration="5672000" />
       <workItem from="1715694715693" duration="3442000" />
+      <workItem from="1715738455390" duration="5722000" />
     </task>
     <servers />
   </component>

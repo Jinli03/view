@@ -10,6 +10,15 @@
         <a-button type="primary" @click="$router.push('HomePage')">返回到首页</a-button>
       </a-affix>
     </template>
+    <template>
+      <a-affix :offset-top="500" >
+        <a-button  shape="circle"  @click="$router.push('HomePage')">
+          <a-icon type=<ShoppingCartOutlined />
+        </a-button>
+      </a-affix>
+    </template>
+
+
     <div style="margin: 10px">
       <p>开始选择图书之旅吧！</p>
     </div>

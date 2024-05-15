@@ -5,6 +5,8 @@
 -->
 <template>
   <div>
+
+
     <div>
       <el-row>
         <el-col :span="4">
@@ -42,8 +44,8 @@
 
     <el-row :gutter="5" style="padding: 6px">
       <el-col :span="5" v-for="form in forms" :key="form.id" style="  padding:18px">
-        <el-card class="card-item" style="background-size: cover;width: 200px;height:290px" >
-          <div slot="header" style="color: black;height: 160px;background-size: cover" :style="{ backgroundImage: 'url(' + form.picture + ')' }">
+        <el-card class="card-item" style="background-size: cover;width: 200px;height:300px" >
+          <div slot="header" class="header-image"  :style="{ backgroundImage: 'url(' + form.picture + ')' }">
 
 
           </div>
@@ -59,10 +61,10 @@
                 </div>
 
 
-            <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100px;align-items: flex-end;position: absolute;right:10px;bottom: -20px">
-              <el-button  icon="el-icon-plus" circle></el-button>
-              <el-popconfirm style="margin-bottom: 32px;" title="确认购买吗？">
-                <el-button slot="reference" >购买</el-button>
+            <div style="display: flex; flex-direction: column; justify-content: space-between;position: relative;width: 100%;height: 100%">
+              <el-button  icon="el-icon-plus" circle style="position: absolute;top: -15px;right: -5px" @click="open1"></el-button>
+              <el-popconfirm  title="确认购买吗？">
+                <el-button style="position: absolute;top:30px;right: -15px" slot="reference" >购买</el-button>
               </el-popconfirm>
             </div>
           </div>
@@ -70,6 +72,7 @@
       </el-col>
     </el-row>
   </div>
+
 </template>
 
 <script>
@@ -94,6 +97,14 @@ export default {
     this.load(1)
   },
   methods: {
+    open1(){
+      this.$notify({
+        title: '成功',
+        message: '成功加入购物车',
+        type: 'success'
+      });
+    },
+
     handleClick(tab, event) {
       console.log(tab, event);
     },
@@ -126,5 +137,10 @@ export default {
 </script>
 
 <style>
-
+.header-image{
+  background-size: cover;
+  background-position: center;
+  color: black;
+  height: 170px;
+}
 </style>
