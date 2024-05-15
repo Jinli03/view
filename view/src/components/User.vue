@@ -40,21 +40,30 @@
       </el-row>
     </div>
 
-    <el-row :gutter="20" style="padding: 8px">
-      <el-col :span="6" v-for="form in forms" :key="form.id" style="padding: 10px">
-        <el-card class="card-item" style="background-size: cover" >
-          <div slot="header" style="color: black;">
-            <img :src="form.pic || 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'" alt="" style="width: 30px; height: 30px; border-radius: 50%; margin: 2px">
-            <span>{{ form.name }}</span>
-            <span style="float: right;">{{ form.sub }}</span>
+    <el-row :gutter="5" style="padding: 6px">
+      <el-col :span="5" v-for="form in forms" :key="form.id" style="  padding:18px">
+        <el-card class="card-item" style="background-size: cover;width: 200px;height:290px" >
+          <div slot="header" style="color: black;height: 160px;background-size: cover" :style="{ backgroundImage: 'url(' + form.picture + ')' }">
+
+
           </div>
-          <div style="color: black;">
-            <div slot="footer">
-              <span>{{ form.des }}</span><br>
-              <span>#</span>
-              <span>{{ form.price }}</span>
-              <el-button style="float: right">购买</el-button>
-              <el-button :type="date">goumai</el-button>
+          <div style="color: black;display: flex;">
+
+
+                <div style=";white-space: nowrap">
+                  <span>{{ form.name}}</span><br>
+                  <span>￥</span>
+                  <span>{{ form.price }}</span>
+                  <br>
+                  <span >{{ form.sub }}</span>
+                </div>
+
+
+            <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100px;align-items: flex-end;position: absolute;right:10px;bottom: -20px">
+              <el-button  icon="el-icon-plus" circle></el-button>
+              <el-popconfirm style="margin-bottom: 32px;" title="确认购买吗？">
+                <el-button slot="reference" >购买</el-button>
+              </el-popconfirm>
             </div>
           </div>
         </el-card>
